@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="1dp"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="375dp"
+        android:background="@color/p_yellow"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:id="@+id/popup_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/icon_name"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@color/yellow_border"
+                        android:padding="3dp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_box_cost"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/popup_res1_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:id="@+id/popup_res1_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp" />
+
+                <TextView
+                    android:id="@+id/popup_res2_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="45"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/popup_res2_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/r_gold"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/popup_res3_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="25"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/popup_res3_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/r_wood"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/popup_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/popup_hp_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:src="@drawable/hp_icon" />
+
+                <TextView
+                    android:id="@+id/popup_hp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/popup_attack_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/attack_icon" />
+
+                <TextView
+                    android:id="@+id/popup_attack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/popup_range_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/range_icon" />
+
+                <TextView
+                    android:id="@+id/popup_range"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/popup_melee_armor_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/melee_armor_icon" />
+
+                <TextView
+                    android:id="@+id/popup_melee_armor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/popup_pierce_armor_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/pierce_armor_icon" />
+
+                <TextView
+                    android:id="@+id/popup_pierce_armor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/popup_time_space"
+                    android:layout_width="10dp"
+                    android:visibility="gone"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/popup_time_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/hourglass_black" />
+
+                <TextView
+                    android:id="@+id/popup_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/popup_upgrade_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_box_upgrade_cost"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/popup_upgrade_res1_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:id="@+id/popup_upgrade_res1_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp" />
+
+                <TextView
+                    android:id="@+id/popup_upgrade_res2_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:text="45" />
+
+                <ImageView
+                    android:id="@+id/popup_upgrade_res2_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:visibility="gone"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/r_gold" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/popup_more_info_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@string/tt_popup_more_info" />
+    </LinearLayout>
+
+</LinearLayout>

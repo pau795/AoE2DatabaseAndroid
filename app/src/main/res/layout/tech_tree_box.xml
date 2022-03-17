@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center">
+    <LinearLayout
+        android:id="@+id/tt_box_left_margin"
+        android:layout_width="@dimen/tt_box_middle_padding"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:gravity="top"
+        android:orientation="vertical">
+        <View
+            android:id="@+id/tt_box_top_left_connector_aux"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:visibility="visible"
+            android:background="@color/black"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/tt_box_top_left_connector"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/black"/>
+            <View
+                android:id="@+id/tt_box_top_connector"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black"/>
+            <View
+                android:id="@+id/tt_box_top_right_connector"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/black"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/tt_box"
+            android:layout_width="80dp"
+            android:layout_height="85dp"
+            android:background="@color/black"
+            android:padding="1dp">
+            <LinearLayout
+                android:id="@+id/tt_box_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="1dp"
+                    android:background="@color/black">
+
+                    <ImageView
+                        android:id="@+id/tt_box_image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="2dp"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/tt_box_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <View
+                android:id="@+id/tt_box_bottom_connector"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tt_box_right_margin"
+        android:layout_width="@dimen/tt_box_middle_padding"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:gravity="top"
+        android:orientation="vertical">
+        <View
+            android:id="@+id/tt_box_top_right_connector_aux"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+    </LinearLayout>
+</LinearLayout>
+

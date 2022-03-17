@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <item android:title="@string/main_data_base">
+    <menu>
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/house"
+            app:showAsAction="always"
+            android:title="@string/main_home" />
+        <item
+            android:id="@+id/nav_units"
+            android:icon="@drawable/unit"
+            app:showAsAction="always"
+            android:title="@string/main_units" />
+        <item
+            android:id="@+id/nav_buildings"
+            android:icon="@drawable/castle"
+            android:title="@string/main_buildings" />
+        <item
+            android:id="@+id/nav_techs"
+            android:icon="@drawable/gear"
+            android:title="@string/main_techs" />
+        <item
+            android:id="@+id/nav_civs"
+            android:icon="@drawable/crown"
+            android:title="@string/main_civs" />
+        <item
+            android:id="@+id/nav_techtree"
+            android:icon="@drawable/techtree"
+            android:title="@string/main_tech_tree" />
+        <item
+            android:id="@+id/nav_game_mechanics"
+            android:icon="@drawable/game_mechanics"
+            android:title="@string/main_game_mechanics" />
+        <item
+            android:id="@+id/nav_tools"
+            android:icon="@drawable/hammer"
+            android:title="@string/main_tools" />
+        <item
+            android:id="@+id/nav_misc"
+            android:icon="@drawable/chest"
+            android:title="@string/main_misc" />
+    </menu>
+    </item>
+    <item android:title="@string/main_quiz_mode">
+        <menu>
+            <item
+                android:id="@+id/nav_quiz"
+                android:icon="@drawable/quiz"
+                android:title="@string/main_new_quiz" />
+            <item
+                android:id="@+id/nav_scores"
+                android:icon="@drawable/score"
+                android:title="@string/main_scores" />
+        </menu>
+    </item>
+</menu>

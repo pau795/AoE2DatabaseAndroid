@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="buttonTittle" format="string"/>
+
+    <declare-styleable name="TechTreeBox">
+        <attr name="entity_type" format="enum">
+            <enum name="unit" value="0"/>
+            <enum name="building" value="1"/>
+            <enum name="tech" value="2"/>
+            <enum name="unique_unit" value="3"/>
+            <enum name="elite_unique_unit" value="4"/>
+            <enum name="castle_unique_tech" value="5"/>
+            <enum name="imp_unique_tech" value="6"/>
+            <enum name="special_unique_unit" value="7"/>
+        </attr>
+        <attr name="entity_id" format="integer"/>
+        <attr name="enabled" format="boolean"/>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="TechTreeItem">
+        <attr name="left_margin" format="boolean"/>
+        <attr name="right_margin" format="boolean"/>
+        <attr name="top_connector" format="boolean"/>
+        <attr name="bottom_connector" format="boolean"/>
+        <attr name="top_left_connector" format="boolean"/>
+        <attr name="top_right_connector" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="TechTreeEmptyBox">
+        <attr name="line" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="EntityButton">
+        <attr name="buttonTittle"/>
+    </declare-styleable>
+
+    <declare-styleable name="MenuButton">
+        <attr name="buttonTittle"/>
+        <attr name="buttonIcon" format="reference"/>
+        <attr name="hasBorder" format="boolean"/>
+        <attr name="buttonIntentClass" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="CivilizationEntityButton">
+        <attr name="button_type" format="enum">
+            <enum name="unique_unit1" value="0"/>
+            <enum name="unique_unit2" value="1"/>
+            <enum name="castle_unique_tech" value="2"/>
+            <enum name="imp_unique_tech" value="3"/>
+            <enum name="unique_building" value="4"/>
+        </attr>
+    </declare-styleable>
+
+</resources>
