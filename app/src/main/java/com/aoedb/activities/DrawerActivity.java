@@ -174,6 +174,10 @@ public abstract class DrawerActivity extends BaseActivity
             i =  new Intent(this, ScoreActivity.class);
             startActivity(i);
             this.finish();
+        } else if (id == R.id.nav_web) {
+            Intent i = new Intent(Intent.ACTION_VIEW , Uri.parse(getString(R.string.web_app_url)));
+            startActivity(i);
+            this.finish();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

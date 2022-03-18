@@ -76,6 +76,7 @@ public class MainActivity extends DrawerActivity{
         LinearLayout misc = findViewById(R.id.layout_misc);
         LinearLayout newQuiz = findViewById(R.id.layout_new_quiz);
         LinearLayout scores = findViewById(R.id.layout_scores);
+        LinearLayout web = findViewById(R.id.layout_web);
 
         setupLangLayout();
 
@@ -150,6 +151,14 @@ public class MainActivity extends DrawerActivity{
                 startActivity(i);
             }
         });
+        web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW , Uri.parse(getString(R.string.web_app_url)));
+                startActivity(i);
+            }
+        });
+
     }
 
     private void setupLangLayout(){
@@ -319,6 +328,10 @@ public class MainActivity extends DrawerActivity{
         } else if (id == R.id.nav_scores) {
             Intent i =  new Intent(this, ScoreActivity.class);
             startActivity(i);
+        } else if (id == R.id.nav_web) {
+            Intent i = new Intent(Intent.ACTION_VIEW , Uri.parse(getString(R.string.web_app_url)));
+            startActivity(i);
+            this.finish();
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

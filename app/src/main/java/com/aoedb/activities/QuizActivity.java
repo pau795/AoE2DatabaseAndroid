@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -263,6 +264,11 @@ public abstract class QuizActivity extends DrawerActivity {
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
             i = new Intent(this, ScoreActivity.class);
+            startActivity(i);
+            this.finish();
+        }
+        else if (id == R.id.nav_web) {
+            Intent i = new Intent(Intent.ACTION_VIEW , Uri.parse(getString(R.string.web_app_url)));
             startActivity(i);
             this.finish();
         }

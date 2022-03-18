@@ -30,8 +30,8 @@ import java.util.List;
 public class Database {
 
     //DATABASE CONSTANTS
-    public final static String APP_VERSION = "v1.6.3";
-    public final static int PATCH_VERSION = 56005;
+    public final static String APP_VERSION = "v1.7";
+    public final static int PATCH_VERSION = 59165;
 
     //LANGUAGES
     public final static String SPANISH = "es";
