@@ -2,6 +2,7 @@ package com.aoedb.activities;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -92,9 +93,23 @@ public class TradeMechanicsActivity extends DrawerActivity {
         TextView t3 = findViewById(R.id.trade_profit3);
         TextView t4 = findViewById(R.id.trade_profit4);
         TextView t5 = findViewById(R.id.trade_profit5);
-        t2.setText(getText(R.string.trade_mechanics_profit2));
-        t3.setText(getText(R.string.trade_mechanics_profit3));
-        t4.setText(getText(R.string.trade_mechanics_profit4));
-        t5.setText(getText(R.string.trade_mechanics_profit5));
+        TextView formulaText = findViewById(R.id.trade_formula);
+        t2.setText(Html.fromHtml(getString(R.string.trade_mechanics_profit2), Html.FROM_HTML_MODE_COMPACT));
+        t3.setText(Html.fromHtml(getString(R.string.trade_mechanics_profit3), Html.FROM_HTML_MODE_COMPACT));
+        t4.setText(Html.fromHtml(getString(R.string.trade_mechanics_profit4), Html.FROM_HTML_MODE_COMPACT));
+        t5.setText(Html.fromHtml(getString(R.string.trade_mechanics_profit5), Html.FROM_HTML_MODE_COMPACT));
+        formulaText.setText(Html.fromHtml(getFormulaString(), Html.FROM_HTML_MODE_COMPACT));
+
+    }
+
+    private String getFormulaString(){
+        String text = getString(R.string.trade_mechanics_formula_text);
+        text += "<br><br>";
+        text += "• "+ getString(R.string.trade_mechanics_formula_text1) + "<br>";
+        text += "• "+ getString(R.string.trade_mechanics_formula_text2) + "<br>";
+        text += "• "+ getString(R.string.trade_mechanics_formula_text3) + "<br>";
+        text += "• "+ getString(R.string.trade_mechanics_formula_text4) + "<br>";
+        text += "• "+ getString(R.string.trade_mechanics_formula_text5) + "<br>";
+        return text;
     }
 }

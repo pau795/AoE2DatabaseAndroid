@@ -2,12 +2,14 @@ package com.aoedb.activities;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.widget.Button;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import android.widget.TableLayout;
+import android.widget.TextView;
 
 import com.aoedb.R;
 
@@ -38,7 +40,19 @@ public class BuildingMechanicsActivity extends DrawerActivity {
             }
         } );
 
+        TextView t = findViewById(R.id.building_formula);
+        t.setText(Html.fromHtml(getFormulaString(), Html.FROM_HTML_MODE_COMPACT));
 
+
+    }
+
+    private String getFormulaString(){
+        String text = getString(R.string.building_mechanics_formula_text);
+        text += "<br><br>";
+        text += "• "+ getString(R.string.building_mechanics_formula_text1) + "<br>";
+        text += "• "+ getString(R.string.building_mechanics_formula_text2) + "<br>";
+        text += "• "+ getString(R.string.building_mechanics_formula_text3) + "<br>";
+        return text;
     }
 
 }

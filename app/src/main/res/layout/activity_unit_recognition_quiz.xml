@@ -57,7 +57,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/quiz_hp"
+                            android:text="@string/quiz_hp_android"
                             android:textAlignment="center"
                             android:textColor="@color/white"
                             android:textSize="16sp"
@@ -94,7 +94,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:textStyle="bold"
-                                android:text="@string/quiz_attack"
+                                android:text="@string/quiz_attack_android"
                                 android:textAlignment="center"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -124,7 +124,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:textStyle="bold"
-                                android:text="@string/quiz_range"
+                                android:text="@string/quiz_range_android"
                                 android:textAlignment="center"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -158,7 +158,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:textStyle="bold"
-                                android:text="@string/quiz_melee_armor"
+                                android:text="@string/quiz_melee_armor_android"
                                 android:textAlignment="center"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -189,7 +189,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:textStyle="bold"
-                                android:text="@string/quiz_pierce_armor"
+                                android:text="@string/quiz_pierce_armor_android"
                                 android:textAlignment="center"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -288,7 +288,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/quiz_score"
+                            android:text="@string/quiz_score_android"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -407,7 +407,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/quiz_correct_answers"
+                        android:text="@string/quiz_correct_answers_android"
                         android:textColor="@color/black" />
                     <TextView
                         android:id="@+id/quiz_correct_answers"
@@ -427,7 +427,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/quiz_multiplier"
+                        android:text="@string/quiz_multiplier_android"
                         android:textColor="@color/black" />
                     <TextView
                         android:id="@+id/quiz_multiplier"
@@ -519,7 +519,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:text="@string/quiz_score"/>
+                    android:text="@string/quiz_score_android"/>
                 <TextView
                     android:id="@+id/quiz_finish_score"
                     android:layout_width="wrap_content"
@@ -541,7 +541,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:text="@string/quiz_correct_answers"/>
+                    android:text="@string/quiz_correct_answers_android"/>
                 <TextView
                     android:id="@+id/quiz_finish_correct"
                     android:layout_width="wrap_content"
@@ -563,7 +563,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:text="@string/quiz_max_streak"/>
+                    android:text="@string/quiz_max_streak_android"/>
                 <TextView
                     android:id="@+id/quiz_finish_streak"
                     android:layout_width="wrap_content"
@@ -585,7 +585,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:text="@string/quiz_max_multiplier"/>
+                    android:text="@string/quiz_max_multiplier_android"/>
                 <TextView
                     android:id="@+id/quiz_finish_multiplier"
                     android:layout_width="wrap_content"

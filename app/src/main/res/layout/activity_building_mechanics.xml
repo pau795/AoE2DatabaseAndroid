@@ -37,9 +37,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/formula_building_1"/>
             <TextView
+                android:id="@+id/building_formula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/building_mechanics_formula_text"
             android:paddingBottom="10dp"/>
             <TextView
                 android:layout_width="match_parent"

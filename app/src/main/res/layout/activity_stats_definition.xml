@@ -46,9 +46,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
             <TextView
+                android:id="@+id/stats_definition"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/stats_definition1"/>
+                android:layout_height="wrap_content" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />

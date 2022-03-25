@@ -707,18 +707,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="10dp"/>
                 <TextView
+                    android:id="@+id/garrison_formula"
                     android:layout_width="275dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/garrison_formula_text"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>
             <TextView
+                android:id="@+id/garrison_disclaimer"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/garrison_projectiles3"/>
+                android:layout_height="wrap_content" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>

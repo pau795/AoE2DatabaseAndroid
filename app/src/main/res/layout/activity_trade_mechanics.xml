@@ -158,9 +158,9 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/formula_trade_2"/>
                 <TextView
+                    android:id="@+id/trade_formula"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/trade_mechanics_formula_text" />
+                    android:layout_height="wrap_content" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"/>

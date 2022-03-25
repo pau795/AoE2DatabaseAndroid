@@ -159,7 +159,7 @@ public class TechnologyStatsQuizActivity extends QuizActivity {
                 question.setText(q2);
                 doubleAnswerLayout.setVisibility(View.GONE);
                 singleAnswerLayout.setVisibility(View.VISIBLE);
-                correctionComment = String.format(getString(R.string.quiz_tech_stats_research_time_correction),(int)t.getBaseStat(Database.TRAINING_TIME), t.getName());
+                correctionComment = String.format(getString(R.string.quiz_tech_stats_research_time_correction), Utils.getDecimalString(t.getBaseStat(Database.TRAINING_TIME), 1), t.getName());
                 break;
             case 1:
                 String q3 = String.format(getString(R.string.quiz_tech_stats_cost_question), currentQuestion, numQuestions, t.getName());

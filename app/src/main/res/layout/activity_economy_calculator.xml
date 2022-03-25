@@ -129,7 +129,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/ec_min"
+                                    android:text="@string/ec_min_android"
                                     android:textAlignment="center"
                                     android:textSize="@dimen/eco_number_size" />
                             </LinearLayout>
@@ -173,7 +173,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/ec_min"
+                                    android:text="@string/ec_min_android"
                                     android:textAlignment="center"
                                     android:textSize="@dimen/eco_number_size" />
                             </LinearLayout>
@@ -215,7 +215,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/ec_min"
+                                    android:text="@string/ec_min_android"
                                     android:textAlignment="center"
                                     android:textSize="@dimen/eco_number_size" />
                             </LinearLayout>
@@ -337,7 +337,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/ec_min"
+                                    android:text="@string/ec_min_android"
                                     android:textAlignment="center"
                                     android:textSize="@dimen/eco_number_size"
                                     android:textStyle="bold" />
@@ -405,7 +405,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/ec_min"
+                                    android:text="@string/ec_min_android"
                                     android:textAlignment="center"
                                     android:textSize="@dimen/eco_number_size"
                                     android:textStyle="bold" />
@@ -472,7 +472,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/ec_min"
+                                    android:text="@string/ec_min_android"
                                     android:textAlignment="center"
                                     android:textSize="@dimen/eco_number_size"
                                     android:textStyle="bold" />

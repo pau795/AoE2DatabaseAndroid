@@ -2769,7 +2769,12 @@
 			<costEffect/>
 			<ecoEffect/>
 			<attackValueEffect/>
-			<armorValueEffect/>
+			<armorValueEffect>
+				<effectItem>
+					<filter/>
+					<operation stat="2" operator="+" value="1"/>
+				</effectItem>
+			</armorValueEffect>
 		</effects>
 	</item>
 	<item id="171">

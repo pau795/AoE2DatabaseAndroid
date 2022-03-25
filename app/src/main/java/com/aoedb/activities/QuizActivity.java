@@ -109,7 +109,7 @@ public abstract class QuizActivity extends DrawerActivity {
     }
 
     protected void wrongAnswer(){
-        comment.setText(getString(R.string.quiz_wrong_answer) +". "+ correctionComment);
+        comment.setText(getString(R.string.quiz_wrong_answer_android) +". "+ correctionComment);
         symbol.setImageResource(R.drawable.incorrect);
         streak = 0;
         multiplier = 1;

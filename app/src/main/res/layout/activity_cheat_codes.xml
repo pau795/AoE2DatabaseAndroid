@@ -26,9 +26,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
             <TextView
+                android:id="@+id/cheat_codes_resources"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cheat_codes_resources"/>
+                android:layout_height="wrap_content"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
@@ -46,9 +46,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
             <TextView
+                android:id="@+id/cheat_codes_units"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cheat_codes_units"/>
+                android:layout_height="wrap_content"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
@@ -66,9 +66,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
             <TextView
+                android:id="@+id/cheat_codeS_various"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cheat_codes_various"/>
+                android:layout_height="wrap_content"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
@@ -86,9 +86,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
             <TextView
+                android:id="@+id/non_cheat_codes"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/non_cheat_codes"/>
+                android:layout_height="wrap_content"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
@@ -106,9 +106,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
             <TextView
+                android:id="@+id/cheat_codes_events"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/event_cheat_codes"/>
+                android:layout_height="wrap_content"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
