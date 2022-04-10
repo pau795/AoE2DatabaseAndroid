@@ -201,7 +201,7 @@ public class AdvancedSearchActivity extends DrawerActivity {
                 break;
         }
         if (!file.equals("")) {
-            Comparator<EntityElement> comp = EntityElement.getListElementComparator(file, 0);
+            Comparator<EntityElement> comp = EntityElement.getListElementComparator(Database.getOrderMap(file, 0));
             Collections.sort(resultsList, comp);
         }
     }

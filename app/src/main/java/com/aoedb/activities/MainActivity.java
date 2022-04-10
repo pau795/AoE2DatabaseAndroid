@@ -11,10 +11,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -23,7 +26,10 @@ import com.aoedb.R;
 import com.aoedb.adapters.EntityAdapter;
 import com.aoedb.data.EntityElement;
 import com.aoedb.database.Database;
+import com.aoedb.database.Utils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -80,122 +86,79 @@ public class MainActivity extends DrawerActivity{
 
         setupLangLayout();
 
-        units.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, UnitListActivity.class);
-                startActivity(i);
-            }
+        units.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, UnitListActivity.class);
+            startActivity(i);
         });
-        buildings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, BuildingListActivity.class);
-                startActivity(i);
-            }
+        buildings.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, BuildingListActivity.class);
+            startActivity(i);
         });
-        techs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, TechnologyListActivity.class);
-                startActivity(i);
-            }
+        techs.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, TechnologyListActivity.class);
+            startActivity(i);
         });
-        civs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, CivilizationListActivity.class);
-                startActivity(i);
-            }
+        civs.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, CivilizationListActivity.class);
+            startActivity(i);
         });
-        techTree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, LoadingTechTreeActivity.class);
-                i.putExtra(Database.CIV, 1);
-                startActivity(i);
-            }
+        techTree.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, LoadingTechTreeActivity.class);
+            i.putExtra(Database.CIV, 1);
+            startActivity(i);
         });
-        gameMechanics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, GameMechanicsActivity.class);
-                startActivity(i);
-            }
+        gameMechanics.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, GameMechanicsActivity.class);
+            startActivity(i);
         });
-        tools.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, ToolsActivity.class);
-                startActivity(i);
-            }
+        tools.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, ToolsActivity.class);
+            startActivity(i);
         });
-        misc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, MiscActivity.class);
-                startActivity(i);
-            }
+        misc.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, MiscActivity.class);
+            startActivity(i);
         });
-        newQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, NewQuizActivity.class);
-                startActivity(i);
-            }
+        newQuiz.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, NewQuizActivity.class);
+            startActivity(i);
         });
-        scores.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ctx, ScoreActivity.class);
-                startActivity(i);
-            }
+        scores.setOnClickListener(v -> {
+            Intent i = new Intent(ctx, ScoreActivity.class);
+            startActivity(i);
         });
-        web.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_VIEW , Uri.parse(getString(R.string.web_app_url)));
-                startActivity(i);
-            }
+        web.setOnClickListener(v -> {
+            Intent i = new Intent(Intent.ACTION_VIEW , Uri.parse(getString(R.string.web_app_url)));
+            startActivity(i);
         });
 
     }
 
     private void setupLangLayout(){
-        final LinearLayout buttonEn = findViewById(R.id.button_en);
-        final LinearLayout buttonEs = findViewById(R.id.button_es);
-        buttonEn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                buttonEn.setBackgroundColor(getColor(R.color.grey_background));
-                buttonEs.setBackgroundColor(getColor(R.color.white));
-                Database.writeLanguage(Database.ENGLISH, ctx);
-                setLocale(Database.ENGLISH);
-                if (initLang && !lang.equals(Database.ENGLISH)){
+        final AppCompatSpinner languageSpinner = findViewById(R.id.language_spinner);
+        List<String> languages = new ArrayList<>(Arrays.asList(Database.ENGLISH_FLAG, Database.SPANISH_FLAG, Database.DEUTSCH_FLAG));
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, languages);
+        languageSpinner.setAdapter(adapter);
+        languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String previousLang = lang;
+                lang = Utils.getLanguageFromFlag(adapter.getItem(position));
+                Database.writeLanguage(lang, ctx);
+                setLocale(lang);
+                if (initLang && !previousLang.equals(lang)){
                     finish();
                     Intent intent = new Intent(ctx, LoadingAppActivity.class);
                     startActivity(intent);
                 }
                 initLang = true;
             }
-        });
-        buttonEs.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                buttonEn.setBackgroundColor(getColor(R.color.white));
-                buttonEs.setBackgroundColor(getColor(R.color.grey_background));
-                Database.writeLanguage(Database.SPANISH, ctx);
-                setLocale(Database.SPANISH);
-                if (initLang && !lang.equals(Database.SPANISH)){
-                    finish();
-                    Intent intent = new Intent(ctx, LoadingAppActivity.class);
-                    startActivity(intent);
-                }
-                initLang = true;
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
         lang = Database.readLanguage(this);
-        if (lang.equals(Database.ENGLISH)) buttonEn.callOnClick();
-        else if (lang.equals(Database.SPANISH)) buttonEs.callOnClick();
-
+        languageSpinner.setSelection(Utils.getLanguagePosition(lang));
     }
 
     private void initializeList(){

@@ -29,7 +29,6 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -58,9 +57,10 @@ public class Reader {
             List<EntityElement> b = new ArrayList<>();
             for (int i = 0; i< list.getLength(); ++i) {
                 Element element = (Element) list.item(i);
+                String type = Utils.getEntityTypeString(file);
                 int id = Integer.parseInt(element.getAttribute("id"));
-                String name = element.getTextContent();
-                String img = element.getAttribute("icon");
+                String name = c.getString(c.getResources().getIdentifier(type + "_name_" + id, "string", c.getPackageName()));
+                String img = element.getAttribute("image");
                 int resID = c.getResources().getIdentifier(img, "drawable", c.getPackageName());
                 String media;
                 int mediaID;
@@ -77,7 +77,7 @@ public class Reader {
                     else media = "g_" + img.substring(2);
                     mediaID = c.getResources().getIdentifier(media, "drawable", c.getPackageName());
                 }
-                EntityElement u = new EntityElement(id, name, resID, mediaID, Utils.getEntityTypeString(file));
+                EntityElement u = new EntityElement(id, name, resID, mediaID, type);
                 b.add(u);
             }
             return b;
@@ -100,13 +100,15 @@ public class Reader {
             for (int sort = 0; sort < list.getLength(); ++sort) {
                 LinkedHashMap<String, List<EntityElement>> map = new LinkedHashMap<>();
                 Element group = (Element) list.item(sort);
+                boolean alphabeticalOrder = Boolean.parseBoolean(group.getAttribute("alphabeticalOrder"));
                 NodeList categoryList = group.getElementsByTagName("category");
                 for (int i = 0; i < categoryList.getLength(); ++i) {
                     Element category = (Element) categoryList.item(i);
                     String[] sids = category.getAttribute("ids").split(" ");
                     ArrayList<EntityElement> a = new ArrayList<>();
                     for (String sid : sids) a.add(set.get(Integer.parseInt(sid) - 1));
-                    String groupTitle = category.getAttribute("name");
+                    if (alphabeticalOrder) a.sort(EntityElement.getAlphabeticalComparator());
+                    String groupTitle = c.getString(c.getResources().getIdentifier(category.getAttribute("name"), "string", c.getPackageName()));
                     map.put(groupTitle, a);
                 }
                 b.add(map);
@@ -151,37 +153,22 @@ public class Reader {
         return new ArrayList<>();
     }
 
-    public List<Descriptor> readDescriptors(String file){
-        try {
+    public List<Descriptor> readDescriptors(String type){
             List<Descriptor> map = new ArrayList<>();
-            int listID = c.getResources().getIdentifier(file, "raw", c.getPackageName());
-            InputStream inputStream = c.getResources().openRawResource(listID);
-            DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder = builderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(inputStream);
-            NodeList list = doc.getElementsByTagName("item");
-            for (int z = 0; z < list.getLength(); ++z) {
-                Element item = (Element) list.item(z);
+            List<EntityElement> list = Database.getList(type +"_list");
+            for (EntityElement element: list) {
                 Descriptor d = new Descriptor();
-                d.setNominative(item.getElementsByTagName("nominative").item(0).getTextContent());
-                d.setQuickDescription(item.getElementsByTagName("quickDescription").item(0).getTextContent());
-                d.setBriefDescription(item.getElementsByTagName("briefDescription").item(0).getTextContent());
-                d.setLongDescription(item.getElementsByTagName("longDescription").item(0).getTextContent());
-                d.setExtraDescription(item.getElementsByTagName("extraDescription").item(0).getTextContent());
-                if (d.getNominative().isEmpty()) {
-                    EntityElement l = Database.getElement(Utils.getDescriptionNameFile(file), z + 1);
-                    d.setNominative(l.getName());
-                }
-                if (d.getBriefDescription().isEmpty())
-                    d.setBriefDescription(d.getLongDescription());
+                d.setNominative(c.getString(c.getResources().getIdentifier(type + "_description_nominative_" + element.getId(), "string", c.getPackageName())));
+                d.setQuickDescription(c.getString(c.getResources().getIdentifier(type + "_description_quick_" + element.getId(), "string", c.getPackageName())));
+                d.setBriefDescription(c.getString(c.getResources().getIdentifier(type + "_description_brief_" + element.getId(), "string", c.getPackageName())));
+                d.setLongDescription(c.getString(c.getResources().getIdentifier(type + "_description_long_" + element.getId(), "string", c.getPackageName())));
+                d.setExtraDescription(c.getString(c.getResources().getIdentifier(type + "_description_extra_" + element.getId(), "string", c.getPackageName())));
+
+                if (d.getNominative().isEmpty()) d.setNominative(element.getName());
+                if (d.getBriefDescription().isEmpty()) d.setBriefDescription(d.getLongDescription());
                 map.add(d);
             }
             return map;
-        }
-        catch (ParserConfigurationException | IOException | SAXException e){
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
     }
 
     public List<LinkedHashMap<String, LinkedHashMap<Integer, Double>>> readTypeValues(String file) {
@@ -258,7 +245,7 @@ public class Reader {
                             upgradeList.add(l);
                         }
                         b.put(buildingName, upgradeList);
-                        if (b.isEmpty()) b.put(c.getString(R.string.none), new ArrayList<EntityElement>());
+                        if (b.isEmpty()) b.put(c.getString(R.string.none), new ArrayList<>());
                     }
                 }
                 map.add(b);
@@ -304,9 +291,9 @@ public class Reader {
                         weakList.add(l);
                     }
                 }
-                Comparator<EntityElement> comp = EntityElement.getListElementComparator(Database.PERFORMANCE_GROUPS, 0);
-                Collections.sort(strongList, comp);
-                Collections.sort(weakList, comp);
+                Comparator<EntityElement> comp = EntityElement.getListElementComparator(Database.getOrderMap(Database.PERFORMANCE_GROUPS, 0));
+                strongList.sort(comp);
+                weakList.sort(comp);
                 b.put(c.getString(R.string.performance_strong), strongList);
                 b.put(c.getString(R.string.performance_weak), weakList);
                 map.add(b);
@@ -369,7 +356,7 @@ public class Reader {
                             }
                             elementList.add(l);
                         }
-                        Collections.sort(elementList, EntityElement.getListElementComparator(sortFile, 0));
+                        elementList.sort(EntityElement.getListElementComparator(Database.getOrderMap(sortFile, 0)));
                         b.put(groupName, elementList);
                         if (b.isEmpty()) b.put(c.getString(R.string.none), new ArrayList<EntityElement>());
                     }
@@ -444,7 +431,7 @@ public class Reader {
                 else if (c.getString(R.string.tt_buildings).equals(s)) sortFile = Database.BUILDING_GROUPS;
                 else if (c.getString(R.string.tt_techs).equals(s)) sortFile = Database.TECH_GROUPS;
                 else sortFile = "";
-                Collections.sort(list, EntityElement.getListElementComparator(sortFile, 0));
+                list.sort(EntityElement.getListElementComparator(Database.getOrderMap(sortFile, 0)));
             }
             if (map.isEmpty()) map.put(c.getString(R.string.none), new ArrayList<EntityElement>());
         }
@@ -492,9 +479,9 @@ public class Reader {
                 Element item1 = (Element) list.item(realRow);
                 String[] civIDs1 = item1.getAttribute("civs").split(" ");
                 for (String s : civIDs1) availableIDs.add(Integer.parseInt(s));
-                Comparator<EntityElement> comp = EntityElement.getListElementComparator(Database.CIVILIZATION_GROUPS, 0);
-                Collections.sort(available, comp);
-                Collections.sort(unavailable, comp);
+                Comparator<EntityElement> comp = EntityElement.getListElementComparator(Database.getOrderMap(Database.CIVILIZATION_GROUPS, 0));
+                available.sort(comp);
+                unavailable.sort(comp);
                 availabilityList.put(c.getString(R.string.civ_available), available);
                 availabilityList.put(c.getString(R.string.civ_unavailable), unavailable);
                 map.add(new AvailabilityContainer(availabilityList, availableIDs, civMap));
@@ -512,7 +499,7 @@ public class Reader {
         try {
             List<Unit> unitMap = new ArrayList<>();
 
-            List<Descriptor> descriptors = readDescriptors(Database.UNIT_DESCRIPTION);
+            List<Descriptor> descriptors = readDescriptors(Database.UNIT);
             List<LinkedHashMap<String, LinkedHashMap<Integer, Double>>> attackValues = readTypeValues(Database.UNIT_ATTACK);
             List<LinkedHashMap<String, LinkedHashMap<Integer, Double>>> armorValues = readTypeValues(Database.UNIT_ARMOR);
             List<LinkedHashMap<String, List<EntityElement>>> upgrades = readUpgrades(Database.UNIT_UPGRADES);
@@ -608,7 +595,7 @@ public class Reader {
         try {
             List<Building> buildingMap = new ArrayList<>();
 
-            List<Descriptor> descriptors = readDescriptors(Database.BUILDING_DESCRIPTION);
+            List<Descriptor> descriptors = readDescriptors(Database.BUILDING);
             List<LinkedHashMap<String, LinkedHashMap<Integer, Double>>> attackValues = readTypeValues(Database.BUILDING_ATTACK);
             List<LinkedHashMap<String, LinkedHashMap<Integer, Double>>> armorValues = readTypeValues(Database.BUILDING_ARMOR);
             List<LinkedHashMap<String, List<EntityElement>>> upgrades = readUpgrades(Database.BUILDING_UPGRADES);
@@ -709,7 +696,7 @@ public class Reader {
         try {
             List<Technology> techMap = new ArrayList<>();
 
-            List<Descriptor> descriptors = readDescriptors(Database.TECH_DESCRIPTION);
+            List<Descriptor> descriptors = readDescriptors(Database.TECH);
             List<LinkedHashMap<String, List<EntityElement>>> upgrades = readUpgrades(Database.TECH_UPGRADES);
             List<AvailabilityContainer> availability = readAvailability(Database.TECH_AVAILABILITY);
             List<BonusContainer> bonuses = readBonusContainers(Database.TECH_BONUS);
@@ -888,7 +875,7 @@ public class Reader {
             for (int i = 0; i<list.getLength(); ++i) {
                 Element e = (Element) list.item(i);
                 int id = Integer.parseInt(e.getAttribute("id"));
-                String name = e.getTextContent();
+                String name = c.getString(c.getResources().getIdentifier("civilization_name_" + (i + 1), "string", c.getPackageName()));
                 m.put(id, name);
             }
             return m;
@@ -911,7 +898,7 @@ public class Reader {
             for (int i = 0; i<list.getLength(); ++i) {
                 Element e = (Element) list.item(i);
                 int id = Integer.parseInt(e.getAttribute("id"));
-                String name = e.getTextContent();
+                String name = c.getString(c.getResources().getIdentifier("civilization_name_" + (i + 1), "string", c.getPackageName()));
                 m.put(name, id);
             }
             return m;
@@ -923,24 +910,13 @@ public class Reader {
     }
 
     public List<String> readCivStyles(){
-        try{
-            List<String> map =  new ArrayList<>();
-            int listID = c.getResources().getIdentifier(Database.CIVILIZATION_STYLE, "raw", c.getPackageName());
-            InputStream inputStream = c.getResources().openRawResource(listID);
-            DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder = builderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(inputStream);
-            NodeList list = doc.getElementsByTagName("item");
-            for (int z = 0; z < list.getLength(); ++z) {
-                Element n = (Element) list.item(z);
-                map.add(n.getTextContent());
-            }
-            return map;
+        List<String> map =  new ArrayList<>();
+        List<EntityElement> list = Database.getList(Database.CIVILIZATION_LIST);
+        for(EntityElement element: list){
+            String style = c.getString(c.getResources().getIdentifier("civilization_style_" + element.getId(), "string", c.getPackageName()));
+            map.add(style);
         }
-        catch (ParserConfigurationException | IOException | SAXException e){
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
+        return map;
     }
 
     public List<BonusContainer> readBonusContainers(String file){
@@ -1005,7 +981,6 @@ public class Reader {
             Document doc = docBuilder.parse(inputStream);
             NodeList list = doc.getElementsByTagName("item");
             for (int z = 0; z < list.getLength(); ++z) {
-                Element item = (Element) list.item(z);
                 Bonus b = new Bonus();
                 switch (file) {
                     case Database.TECH_LIST:
@@ -1014,9 +989,8 @@ public class Reader {
                         b.setItemDescription("");
                         break;
                     default:
-                        Element description = (Element) item.getElementsByTagName("description").item(0);
-                        String techTreeDescription = description.getAttribute("techTreeDescription");
-                        String itemDescription = description.getAttribute("itemDescription");
+                        String techTreeDescription = c.getString(c.getResources().getIdentifier("bonus_tech_tree_description_" + (z + 1), "string", c.getPackageName()));
+                        String itemDescription = c.getString(c.getResources().getIdentifier("bonus_item_description_" + (z + 1), "string", c.getPackageName()));
                         b.setTechTreeDescription(techTreeDescription);
                         if (itemDescription.isEmpty()) b.setItemDescription(techTreeDescription);
                         else b.setItemDescription(itemDescription);
@@ -1075,7 +1049,7 @@ public class Reader {
                         container.setGlobalFilter(Database.NONE);
                         break;
                     default:
-                        container.setCivID(Integer.parseInt(effectsInfo.getAttribute(Database.CIV)));
+                        container.setCivID(Integer.parseInt(effectsInfo.getAttribute("civ")));
                         staggered = Boolean.parseBoolean(effectsInfo.getAttribute("staggered"));
                         container.setTeamBonus(Boolean.parseBoolean(effectsInfo.getAttribute("teamBonus")));
                         container.setGlobalFilter(effectsInfo.getAttribute("globalFilter"));
@@ -1197,7 +1171,7 @@ public class Reader {
                 EcoElement element = new EcoElement();
                 element.setStat(Integer.parseInt(ecoElement.getAttribute("ecoID")));
                 element.setGatheringRate(1.0f);
-                element.setStatName(ecoElement.getAttribute("name"));
+                element.setStatName(c.getString(c.getResources().getIdentifier("gathering_rates_" + (i + 1), "string", c.getPackageName())));
                 String sIcon = ecoElement.getAttribute("statIcon");
                 int statIcon = c.getResources().getIdentifier(sIcon, "drawable", c.getPackageName());
                 String rIcon = ecoElement.getAttribute("resourceIcon");
@@ -1227,7 +1201,9 @@ public class Reader {
             for (int i = 0; i < list.getLength(); ++i){
                 Element stat = (Element) list.item(i);
                 int id = Integer.parseInt(stat.getAttribute("id"));
-                String name = stat.getTextContent();
+                String name;
+                if (file.equals(Database.ECO_LIST)) name = Utils.getEcoString(id);
+                else name = Utils.getStatString(id);
                 b.put(id, name);
             }
             return b;
@@ -1249,7 +1225,8 @@ public class Reader {
             HashMap<String, Boolean> b = new HashMap<>();
             for (int i = 0; i < list.getLength(); ++i){
                 Element stat = (Element) list.item(i);
-                String name = stat.getTextContent();
+                int id = Integer.parseInt(stat.getAttribute("id"));
+                String name = Utils.getStatString(id);
                 Boolean addition = Boolean.parseBoolean(stat.getAttribute("addition"));
                 b.put(name, addition);
             }
@@ -1272,7 +1249,8 @@ public class Reader {
             HashMap<String, Double> b = new HashMap<>();
             for (int i = 0; i < list.getLength(); ++i){
                 Element stat = (Element) list.item(i);
-                String name = stat.getTextContent();
+                int id = Integer.parseInt(stat.getAttribute("id"));
+                String name = Utils.getEcoString(id);
                 String valueString = stat.getAttribute("value");
                 double value;
                 if (valueString.equals("-")) value = Double.NaN;
@@ -1324,7 +1302,7 @@ public class Reader {
             for (int i = 0; i < list.getLength(); ++i){
                 Element elem = (Element) list.item(i);
                 String id = elem.getAttribute("id");
-                String text = elem.getTextContent();
+                String text = c.getString(c.getResources().getIdentifier("taunt_name_" + (i + 1), "string", c.getPackageName()));
                 String quote = id + " - " + text;
                 int soundID = c.getResources().getIdentifier("t_"+id, "raw", c.getPackageName());
                 TauntElement l3 = new TauntElement(Integer.parseInt(id), quote, soundID);

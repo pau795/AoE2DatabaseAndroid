@@ -1,8 +1,6 @@
 package com.aoedb.data;
 
 
-import com.aoedb.database.Database;
-
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -43,14 +41,11 @@ public class EntityElement implements Serializable{
     }
 
 
-    public static Comparator<EntityElement> getListElementComparator(final String file, final int index){
+    public static Comparator<EntityElement> getListElementComparator(HashMap<Integer, Integer> orderMap){
+        return Comparator.comparing(o -> orderMap.get(o.getId()));
+    }
 
-        return new Comparator<EntityElement>() {
-            final HashMap<Integer, Integer> order =  Database.getOrderMap(file, index);
-            @Override
-            public int compare(EntityElement o1, EntityElement o2) {
-                return order.get(o1.getId()).compareTo(order.get(o2.getId()));
-            }
-        };
+    public static Comparator<EntityElement> getAlphabeticalComparator(){
+        return Comparator.comparing(EntityElement::getName);
     }
 }

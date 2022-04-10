@@ -94,53 +94,45 @@ public class EntityAdapter extends BaseExpandableListAdapter {
         ImageView img = convertView.findViewById(R.id.list_icon1);
         img.setImageResource(elem.getImage());
         setIconBorder(img, getPopupColor(elem), listPosition, expandedListPosition);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Utils.showPopupIcon(v, context, elem.getName(), elem.getImage(), popupIsTransparent(listPosition, expandedListPosition), getPopupColor(elem));
-            }
-        });
+        img.setOnClickListener(v -> Utils.showPopupIcon(v, context, elem.getName(), elem.getImage(), popupIsTransparent(listPosition, expandedListPosition), getPopupColor(elem)));
         LinearLayout layout = convertView.findViewById(R.id.list_layout);
         if (isClickableEntity(elem)) {
-            layout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i;
-                    int civ = -1;
-                    switch (elem.getType()) {
-                        case Database.UNIT:
-                            i = new Intent(context, UnitTabbedActivity.class);
-                            if (!entityType.equals(Database.NONE)) civ = Database.getSelectedCiv(entityType, entityID);
-                            Database.setSelectedCiv(Database.UNIT, elem.getId(), civ);
-                            i.putExtra(Database.ENTITY, elem.getId());
-                            break;
-                        case Database.BUILDING:
-                            i = new Intent(context, BuildingTabbedActivity.class);
-                            if (!entityType.equals(Database.NONE)) civ = Database.getSelectedCiv(entityType, entityID);
-                            Database.setSelectedCiv(Database.BUILDING, elem.getId(), civ);
-                            i.putExtra(Database.ENTITY, elem.getId());
-                            break;
-                        case Database.TECH:
-                            i = new Intent(context, TechnologyTabbedActivity.class);
-                            if (!entityType.equals(Database.NONE)) civ = Database.getSelectedCiv(entityType, entityID);
-                            Database.setSelectedCiv(Database.TECH, elem.getId(), civ);
-                            i.putExtra(Database.ENTITY, elem.getId());
-                            break;
-                        case Database.CIV:
-                            i = new Intent(context, CivilizationViewActivity.class);
-                            i.putExtra(Database.CIV, elem.getId());
-                            break;
-                        case "history":
-                            i = new Intent(context, HistoryViewActivity.class);
-                            i.putExtra("id", elem.getId());
-                            i.putExtra("name", elem.getName());
-                            break;
-                        default:
-                            i = new Intent();
-                            break;
-                    }
-                    context.startActivity(i);
+            layout.setOnClickListener(v -> {
+                Intent i;
+                int civ = -1;
+                switch (elem.getType()) {
+                    case Database.UNIT:
+                        i = new Intent(context, UnitTabbedActivity.class);
+                        if (!entityType.equals(Database.NONE)) civ = Database.getSelectedCiv(entityType, entityID);
+                        Database.setSelectedCiv(Database.UNIT, elem.getId(), civ);
+                        i.putExtra(Database.ENTITY, elem.getId());
+                        break;
+                    case Database.BUILDING:
+                        i = new Intent(context, BuildingTabbedActivity.class);
+                        if (!entityType.equals(Database.NONE)) civ = Database.getSelectedCiv(entityType, entityID);
+                        Database.setSelectedCiv(Database.BUILDING, elem.getId(), civ);
+                        i.putExtra(Database.ENTITY, elem.getId());
+                        break;
+                    case Database.TECH:
+                        i = new Intent(context, TechnologyTabbedActivity.class);
+                        if (!entityType.equals(Database.NONE)) civ = Database.getSelectedCiv(entityType, entityID);
+                        Database.setSelectedCiv(Database.TECH, elem.getId(), civ);
+                        i.putExtra(Database.ENTITY, elem.getId());
+                        break;
+                    case Database.CIV:
+                        i = new Intent(context, CivilizationViewActivity.class);
+                        i.putExtra(Database.CIV, elem.getId());
+                        break;
+                    case "history":
+                        i = new Intent(context, HistoryViewActivity.class);
+                        i.putExtra("id", elem.getId());
+                        i.putExtra("name", elem.getName());
+                        break;
+                    default:
+                        i = new Intent();
+                        break;
                 }
+                context.startActivity(i);
             });
         }
 
@@ -157,7 +149,7 @@ public class EntityAdapter extends BaseExpandableListAdapter {
                 icon.setBackground(null);
                 break;
             case Database.GREEN:
-                if(expandableListTitle.get(listPosition).equals("Civilizations") || elem.getName().equals("Middle Ages")) icon.setBackground(null);
+                if(expandableListTitle.get(listPosition).equals(context.getString(R.string.history_group1_category1)) || elem.getName().equals(context.getString(R.string.history_name_50))) icon.setBackground(null);
                 else icon.setBackgroundColor(context.getColor(R.color.green_border));
                 break;
         }
@@ -165,8 +157,7 @@ public class EntityAdapter extends BaseExpandableListAdapter {
 
     private boolean popupIsTransparent(int listPosition, int expandedListPosition){
         EntityElement elem = getChild(listPosition, expandedListPosition);
-        return elem.getType().equals(Database.CIV) || expandableListTitle.get(listPosition).equals("Civilizations") || elem.getName().equals("Middle Ages")
-            || expandableListTitle.get(listPosition).equals("Civilizaciones") || elem.getName().equals("La Edad Media");
+        return elem.getType().equals(Database.CIV) || expandableListTitle.get(listPosition).equals(context.getString(R.string.history_group1_category1)) || elem.getName().equals(context.getString(R.string.history_name_50));
     }
 
 
