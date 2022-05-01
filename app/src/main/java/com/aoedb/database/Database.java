@@ -161,6 +161,7 @@ public class Database {
     public final static String FARMING_GOLD = "Farming Gold";
     public final static String RELIC_FOOD = "Relic Food";
     public final static String GOLD_STONE_MINERS = "Gold Stone Miners";
+    public final static String GOLD_LUMBERJACKS = "Gold Lumberjacks";
 
 
     //COLORS

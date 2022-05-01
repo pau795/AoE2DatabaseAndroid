@@ -273,6 +273,7 @@ public class Utils {
             case 20: return Database.FARMING_GOLD;
             case 21: return Database.RELIC_FOOD;
             case 22: return Database.GOLD_STONE_MINERS;
+            case 23: return Database.GOLD_LUMBERJACKS;
             default: return "";
         }
     }
