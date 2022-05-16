@@ -33,6 +33,7 @@
     <dimen name="tt_7box_layout">680dp</dimen>
     <dimen name="tt_8box_layout">775dp</dimen>
     <dimen name="tt_9box_layout">870dp</dimen>
+    <dimen name="tt_10box_layout">965dp</dimen>
     <dimen name="dc_stat_row_height">25dp</dimen>
     <dimen name="dc_annotation_text">9sp</dimen>
     <dimen name="dc_efficiency_text">9sp</dimen>

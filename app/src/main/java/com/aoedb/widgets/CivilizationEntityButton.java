@@ -24,7 +24,7 @@ import com.aoedb.database.Utils;
 
 public class CivilizationEntityButton extends LinearLayout {
 
-    final static int UNIQUE_UNIT1 = 0, UNIQUE_UNIT2 = 1, CASTLE_UNIQUE_TECH = 2, IMPERIAL_UNIQUE_TECH = 3, UNIQUE_BUILDING = 4;
+    final static int UNIQUE_UNIT1 = 0, UNIQUE_UNIT2 = 1, UNIQUE_UNIT3 = 5, CASTLE_UNIQUE_TECH = 2, IMPERIAL_UNIQUE_TECH = 3, UNIQUE_BUILDING = 4;
 
     int buttonType;
     AttributeSet attrs;
@@ -63,6 +63,13 @@ public class CivilizationEntityButton extends LinearLayout {
                 descriptionText.setText(Database.getUnit(civ.getUniqueUnitList().get(1)).getDescriptor().getQuickDescription());
                 icon.setImageResource(Database.getUnit(civ.getUniqueUnitList().get(1)).getNameElement().getImage());
                 entityID = civ.getUniqueUnitList().get(1);
+                type = Database.UNIT;
+                break;
+            case UNIQUE_UNIT3:
+                nameText.setText(Database.getUnit(civ.getUniqueUnitList().get(2)).getName());
+                descriptionText.setText(Database.getUnit(civ.getUniqueUnitList().get(2)).getDescriptor().getQuickDescription());
+                icon.setImageResource(Database.getUnit(civ.getUniqueUnitList().get(2)).getNameElement().getImage());
+                entityID = civ.getUniqueUnitList().get(2);
                 type = Database.UNIT;
                 break;
             case CASTLE_UNIQUE_TECH:

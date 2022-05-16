@@ -36,8 +36,8 @@
     <!--Incas-->
     <item id="12" image="c_incas"/>
      
-    <!--Indians-->
-    <item id="13" image="c_indians"/>
+    <!--Hindustanis-->
+    <item id="13" image="c_hindustanis"/>
      
     <!--Italians-->
     <item id="14" image="c_italians"/>
@@ -116,5 +116,14 @@
      
     <!--Poles-->
     <item id="39" image="c_poles"/>
+	
+	<!--Bengalis-->
+    <item id="40" image="c_bengalis"/>
+	
+	<!--Dravidians-->
+    <item id="41" image="c_dravidians"/>
+	
+	<!--Gurjaras-->
+    <item id="42" image="c_gurjaras"/>
      
 </list>

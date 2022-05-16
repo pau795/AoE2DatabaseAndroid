@@ -276,6 +276,8 @@ public class DamageCalculator {
                     else multiplier = r.getCalculatedStat(Database.BONUS_REDUCTION);
                     double prod = attackValue * multiplier;
                     if (attackType == 3 && type == 1) prod += chargeAttack;
+                    if (type == 1 && !Double.isNaN(u.getCalculatedStat(Database.IGNORE_ARMOR))
+                            && Double.isNaN(r.getCalculatedStat(Database.RESIST_ARMOR_IGNORE))) armorValue = 0;
                     double partialDamage = Math.max(0.0f, prod - armorValue);
                     damage += partialDamage;
                     AttackValues at = new AttackValues(type, attackValue, armorValue, multiplier, partialDamage);

@@ -136,7 +136,7 @@ public class MainActivity extends DrawerActivity{
 
     private void setupLangLayout(){
         final AppCompatSpinner languageSpinner = findViewById(R.id.language_spinner);
-        List<String> languages = new ArrayList<>(Arrays.asList(Database.ENGLISH_FLAG, Database.SPANISH_FLAG, Database.DEUTSCH_FLAG));
+        List<String> languages = new ArrayList<>(Arrays.asList(Database.ENGLISH_FLAG, Database.SPANISH_FLAG));
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, languages);
         languageSpinner.setAdapter(adapter);
         languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

@@ -193,6 +193,12 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 app:button_type="unique_unit2"/>
+            <com.aoedb.widgets.CivilizationEntityButton
+                android:id="@+id/unique_unit3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:button_type="unique_unit3"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="5dp" />

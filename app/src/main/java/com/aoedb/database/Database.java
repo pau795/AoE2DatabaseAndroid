@@ -30,8 +30,8 @@ import java.util.List;
 public class Database {
 
     //DATABASE CONSTANTS
-    public final static String APP_VERSION = "v1.7";
-    public final static int PATCH_VERSION = 59165;
+    public final static String APP_VERSION = "v1.8";
+    public final static int PATCH_VERSION = 61321;
 
     //LANGUAGES
     public final static String SPANISH = "es";
@@ -137,6 +137,8 @@ public class Database {
     public final static String CHARGE_ATTACK = "Charge Attack";
     public final static String CHARGE_RELOAD = "Charge Reload";
     public final static String RELICS = "Relics";
+    public final static String IGNORE_ARMOR = "Ignore Armor";
+    public final static String RESIST_ARMOR_IGNORE = "Resist Armor Ignore";
 
     //ECO STATS
     public final static String LUMBERJACK = "Lumberjack";
@@ -503,7 +505,7 @@ public class Database {
     public static List<UpgradeElement> getUpgradeElementList(List<Integer> list){
         List<UpgradeElement> upgradeList = new ArrayList<>(list.size());
         for(int i: list) upgradeList.add(new UpgradeElement(Database.getElement(Database.TECH_LIST, i)));
-        Collections.sort(upgradeList, UpgradeElement.getListElementComparator(Database.TECH_GROUPS, 1));
+        upgradeList.sort(UpgradeElement.getListElementComparator(Database.TECH_GROUPS, 1));
         return upgradeList;
     }
 

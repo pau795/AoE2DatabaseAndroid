@@ -199,8 +199,8 @@ public class Utils {
             case Database.RELOAD_TIME: return "stat_name_8";
             case Database.SPEED: return "stat_name_9";
             case Database.BLAST_RADIUS: return "stat_name_10";
-            case Database.ACCURACY: return "stat_name_11";
-            case Database.ATTACK_DELAY: return "stat_name_12";
+            case Database.ATTACK_DELAY: return "stat_name_11";
+            case Database.ACCURACY: return "stat_name_12";
             case Database.NUMBER_PROJECTILES: return "stat_name_13";
             case Database.PROJECTILE_SPEED: return "stat_name_14";
             case Database.GARRISON_CAPACITY: return "stat_name_15";
@@ -214,6 +214,8 @@ public class Utils {
             case Database.CHARGE_ATTACK: return "stat_name_23";
             case Database.CHARGE_RELOAD: return "stat_name_24";
             case Database.RELICS: return "stat_name_25";
+            case Database.IGNORE_ARMOR: return "stat_name_26";
+            case Database.RESIST_ARMOR_IGNORE: return "stat_name_27";
             default: return "";
         }
     }
@@ -230,8 +232,8 @@ public class Utils {
             case 8: return Database.RELOAD_TIME;
             case 9: return Database.SPEED;
             case 10: return Database.BLAST_RADIUS;
-            case 11: return Database.ACCURACY;
-            case 12: return Database.ATTACK_DELAY;
+            case 11: return Database.ATTACK_DELAY;
+            case 12: return Database.ACCURACY;
             case 13: return Database.NUMBER_PROJECTILES;
             case 14: return Database.PROJECTILE_SPEED;
             case 15: return Database.GARRISON_CAPACITY;
@@ -245,6 +247,8 @@ public class Utils {
             case 23: return Database.CHARGE_ATTACK;
             case 24: return Database.CHARGE_RELOAD;
             case 25: return Database.RELICS;
+            case 26: return Database.IGNORE_ARMOR;
+            case 27: return Database.RESIST_ARMOR_IGNORE;
             default: return "";
         }
     }

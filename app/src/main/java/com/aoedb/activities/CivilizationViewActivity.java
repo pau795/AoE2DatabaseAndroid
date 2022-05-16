@@ -97,6 +97,12 @@ public class CivilizationViewActivity extends DrawerActivity {
             CivilizationEntityButton uniqueUnit2 = findViewById(R.id.unique_unit2);
             uniqueUnit2.setVisibility(View.VISIBLE);
             uniqueUnit2.setupButton(civ, listener, true);;
+            if (civ.getUniqueUnitList().size() > 2) {
+                CivilizationEntityButton uniqueUnit3 = findViewById(R.id.unique_unit3);
+                uniqueUnit3.setVisibility(View.VISIBLE);
+                uniqueUnit3.setupButton(civ, listener, true);;
+
+            }
         }
 
         CivilizationEntityButton castleUniqueTech = findViewById(R.id.castle_unique_tech);

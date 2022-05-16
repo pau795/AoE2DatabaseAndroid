@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/activity_civilization_view.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/activity_tech_tree.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="androidx.annotation.NonNull" />

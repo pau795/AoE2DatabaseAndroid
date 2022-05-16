@@ -123,8 +123,8 @@
     <!--Kamayuks-->
     <item id="41" image="u_kamayuk"/>
      
-    <!--Elephant Archers-->
-    <item id="42" image="u_elephant_archer"/>
+    <!--Ghulams-->
+    <item id="42" image="u_ghulam"/>
      
     <!--Genoese Crossbowmen-->
     <item id="43" image="u_genoese_crossbowman"/>
@@ -224,5 +224,28 @@
      
     <!--Obuch-->
     <item id="75" image="u_obuch"/>
+	
+	<!--Elephant Archers-->
+    <item id="76" image="u_elite_elephant_archer"/>
+	
+	<!--Shrivamsha Riders-->
+    <item id="77" image="u_shrivamsha_rider"/>
+	
+	<!--Siege Elephants-->
+    <item id="78" image="u_siege_elephant"/>
+	
+	<!--Thirisadai-->
+    <item id="79" image="u_thirisadai"/>
+	
+	<!--Rathas-->
+    <item id="80" image="u_ratha_range"/>
+	
+	<!--Urumi Swordsmen-->
+    <item id="81" image="u_urumi_swordsman"/>
+	
+	<!--Chakram Throwers-->
+    <item id="82" image="u_chakram_thrower"/>
+	
+	
      
 </list>

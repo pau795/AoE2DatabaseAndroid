@@ -46,6 +46,7 @@
         <attr name="button_type" format="enum">
             <enum name="unique_unit1" value="0"/>
             <enum name="unique_unit2" value="1"/>
+            <enum name="unique_unit3" value="5"/>
             <enum name="castle_unique_tech" value="2"/>
             <enum name="imp_unique_tech" value="3"/>
             <enum name="unique_building" value="4"/>

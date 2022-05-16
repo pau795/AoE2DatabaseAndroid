@@ -210,7 +210,7 @@
     <!--Andean Sling-->
     <item id="70" image="t_castle_ut"/>
      
-    <!--Sultans-->
+    <!--Grand Trunk Road-->
     <item id="71" image="t_castle_ut"/>
      
     <!--Pavise-->
@@ -462,7 +462,7 @@
     <!--Elite Kamayuk-->
     <item id="154" image="t_elite_uu"/>
      
-    <!--Elite Elephant Archer-->
+    <!--Elite Ghulam-->
     <item id="155" image="t_elite_uu"/>
      
     <!--Elite Genoese Crossbowman-->
@@ -692,5 +692,41 @@
      
     <!--Houfnice-->
     <item id="231" image="t_houfnice"/>
-     
+	
+	<!--Paiks-->
+    <item id="232" image="t_castle_ut"/>
+	
+	<!--Medical Corps-->
+    <item id="233" image="t_castle_ut"/>
+	
+	<!--Kshatriyas-->
+    <item id="234" image="t_castle_ut"/>
+	
+	<!--Elite Elephant Archer-->
+    <item id="235" image="t_elite_elephant_archer"/>
+	
+	<!--Elite Shrivamsha Rider-->
+    <item id="236" image="t_elite_uu"/>
+	
+	<!--Siege Elephant-->
+    <item id="237" image="t_siege_elephant"/>
+	
+	<!--Elite Ratha-->
+    <item id="238" image="t_elite_uu"/>
+	
+	<!--Elite Urumi Swordsman-->
+    <item id="239" image="t_elite_uu"/>
+	
+	<!--Elite Chakram Thrower-->
+    <item id="240" image="t_elite_uu"/>
+	
+	<!--Mahayana-->
+    <item id="241" image="t_imperial_ut"/>
+	
+	<!--Wootz Steel-->
+    <item id="242" image="t_imperial_ut"/>
+	
+	<!--Frontier Guards-->
+    <item id="243" image="t_imperial_ut"/>
+	
 </list>
