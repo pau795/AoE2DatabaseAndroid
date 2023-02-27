@@ -5,6 +5,13 @@
       <map>
         <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/activity_civilization_view.xml" value="0.36666666666666664" />
         <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/activity_tech_tree.xml" value="0.25" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_calculator_popup.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_damage_row.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_efficiency_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_one_row_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_stats_popup.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_time_row.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_two_rows_layout.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
@@ -53,7 +60,7 @@
       </value>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

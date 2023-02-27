@@ -169,37 +169,25 @@ public class DamageCalculatorActivity extends DrawerActivity {
         unit1Rn.setText(String.valueOf(unit1Relics));
         unit2Rn.setText(String.valueOf(unit2Relics));
         calculateStats();
-        unit1Ru.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (unit1Relics < 4) ++unit1Relics;
-                unit1Rn.setText(String.valueOf(unit1Relics));
-                calculateStats();
-            }
+        unit1Ru.setOnClickListener(v -> {
+            if (unit1Relics < 4) ++unit1Relics;
+            unit1Rn.setText(String.valueOf(unit1Relics));
+            calculateStats();
         });
-        unit1Rd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (unit1Relics > 0) --unit1Relics;
-                unit1Rn.setText(String.valueOf(unit1Relics));
-                calculateStats();
-            }
+        unit1Rd.setOnClickListener(v -> {
+            if (unit1Relics > 0) --unit1Relics;
+            unit1Rn.setText(String.valueOf(unit1Relics));
+            calculateStats();
         });
-        unit2Ru.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (unit2Relics < 4) ++unit2Relics;
-                unit2Rn.setText(String.valueOf(unit2Relics));
-                calculateStats();
-            }
+        unit2Ru.setOnClickListener(v -> {
+            if (unit2Relics < 4) ++unit2Relics;
+            unit2Rn.setText(String.valueOf(unit2Relics));
+            calculateStats();
         });
-        unit2Rd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (unit2Relics > 0) --unit2Relics;
-                unit2Rn.setText(String.valueOf(unit2Relics));
-                calculateStats();
-            }
+        unit2Rd.setOnClickListener(v -> {
+            if (unit2Relics > 0) --unit2Relics;
+            unit2Rn.setText(String.valueOf(unit2Relics));
+            calculateStats();
         });
 
     }
@@ -207,26 +195,21 @@ public class DamageCalculatorActivity extends DrawerActivity {
 
     private void setupPopUps(){
         TextView unit1Stats = findViewById(R.id.dc_unit1_stats);
-        unit1Stats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
-                int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
-                View popupView = setUnitStats(unit1);
-                final PopupWindow pw = new PopupWindow(popupView, w, h, true);
-                pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                pw.setOutsideTouchable(true);
-                pw.setTouchInterceptor(new View.OnTouchListener() {
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                            pw.dismiss();
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-                pw.showAsDropDown(v);
-            }
+        unit1Stats.setOnClickListener(v -> {
+            int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
+            int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
+            View popupView = setUnitStats(unit1);
+            final PopupWindow pw = new PopupWindow(popupView, w, h, true);
+            pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            pw.setOutsideTouchable(true);
+            pw.setTouchInterceptor((v1, event) -> {
+                if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+                    pw.dismiss();
+                    return true;
+                }
+                return false;
+            });
+            pw.showAsDropDown(v);
         });
         TextView unit2Stats = findViewById(R.id.dc_unit2_stats);
         unit2Stats.setOnClickListener(new View.OnClickListener() {
@@ -238,14 +221,12 @@ public class DamageCalculatorActivity extends DrawerActivity {
                 final PopupWindow pw = new PopupWindow(popupView, w, h, true);
                 pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 pw.setOutsideTouchable(true);
-                pw.setTouchInterceptor(new View.OnTouchListener() {
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                            pw.dismiss();
-                            return true;
-                        }
-                        return false;
+                pw.setTouchInterceptor((v12, event) -> {
+                    if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+                        pw.dismiss();
+                        return true;
                     }
+                    return false;
                 });
                 pw.showAsDropDown(v);
             }
@@ -310,116 +291,100 @@ public class DamageCalculatorActivity extends DrawerActivity {
             }
         });
         TextView unit1Armor = findViewById(R.id.dc_unit1_armor_values);
-        unit1Armor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View view = inflater.inflate(R.layout.damage_calculator_attack_popup,null);
-                ImageView unitIcon = view.findViewById(R.id.dc_popup_unit_icon);
-                TextView unitName = view.findViewById(R.id.dc_popup_unit_name);
-                unitIcon.setImageResource(unit1.getNameElement().getImage());
-                unitName.setText(String.format(getString(R.string.dc_popup_armor_values), unit1.getName()));
-                final ExpandableListView elv = view.findViewById(R.id.element_list);
-                LinkedHashMap<String, List<TypeElement>> attack = unit1.getArmorValues();
-                ArrayList<String> groupList = new ArrayList<>(attack.keySet());
-                TypeAdapter attackAdapter = new TypeAdapter(c,groupList, attack);
-                elv.setAdapter(attackAdapter);
-                for(int i=0; i < attackAdapter.getGroupCount(); i++) elv.expandGroup(i);
-                int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
-                int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
-                final PopupWindow pw = new PopupWindow(view, w, h, true);
-                pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                pw.setOutsideTouchable(true);
-                pw.setTouchInterceptor(new View.OnTouchListener() {
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                            pw.dismiss();
-                            return true;
-                        }
-                        return false;
+        unit1Armor.setOnClickListener(v -> {
+            LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.damage_calculator_attack_popup,null);
+            ImageView unitIcon = view.findViewById(R.id.dc_popup_unit_icon);
+            TextView unitName = view.findViewById(R.id.dc_popup_unit_name);
+            unitIcon.setImageResource(unit1.getNameElement().getImage());
+            unitName.setText(String.format(getString(R.string.dc_popup_armor_values), unit1.getName()));
+            final ExpandableListView elv = view.findViewById(R.id.element_list);
+            LinkedHashMap<String, List<TypeElement>> attack = unit1.getArmorValues();
+            ArrayList<String> groupList = new ArrayList<>(attack.keySet());
+            TypeAdapter attackAdapter = new TypeAdapter(c,groupList, attack);
+            elv.setAdapter(attackAdapter);
+            for(int i=0; i < attackAdapter.getGroupCount(); i++) elv.expandGroup(i);
+            int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
+            int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
+            final PopupWindow pw = new PopupWindow(view, w, h, true);
+            pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            pw.setOutsideTouchable(true);
+            pw.setTouchInterceptor(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+                        pw.dismiss();
+                        return true;
                     }
-                });
-                pw.showAsDropDown(v);
-            }
+                    return false;
+                }
+            });
+            pw.showAsDropDown(v);
         });
         TextView unit2Armor = findViewById(R.id.dc_unit2_armor_values);
-        unit2Armor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View view = inflater.inflate(R.layout.damage_calculator_attack_popup,null);
-                ImageView unitIcon = view.findViewById(R.id.dc_popup_unit_icon);
-                TextView unitName = view.findViewById(R.id.dc_popup_unit_name);
-                unitIcon.setImageResource(unit2.getNameElement().getImage());
-                unitName.setText(String.format(getString(R.string.dc_popup_armor_values), unit2.getName()));
-                final ExpandableListView elv = view.findViewById(R.id.element_list);
-                LinkedHashMap<String, List<TypeElement>> attack = unit2.getArmorValues();
-                if (attack.isEmpty()) attack.put(getString(R.string.none), new ArrayList<TypeElement>());
-                ArrayList<String> groupList = new ArrayList<>(attack.keySet());
-                TypeAdapter attackAdapter = new TypeAdapter(c,groupList, attack);
-                elv.setAdapter(attackAdapter);
-                for(int i=0; i < attackAdapter.getGroupCount(); i++) elv.expandGroup(i);
-                int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
-                int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
-                final PopupWindow pw = new PopupWindow(view, w, h, true);
-                pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                pw.setOutsideTouchable(true);
-                pw.setTouchInterceptor(new View.OnTouchListener() {
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                            pw.dismiss();
-                            return true;
-                        }
-                        return false;
+        unit2Armor.setOnClickListener(v -> {
+            LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.damage_calculator_attack_popup,null);
+            ImageView unitIcon = view.findViewById(R.id.dc_popup_unit_icon);
+            TextView unitName = view.findViewById(R.id.dc_popup_unit_name);
+            unitIcon.setImageResource(unit2.getNameElement().getImage());
+            unitName.setText(String.format(getString(R.string.dc_popup_armor_values), unit2.getName()));
+            final ExpandableListView elv = view.findViewById(R.id.element_list);
+            LinkedHashMap<String, List<TypeElement>> attack = unit2.getArmorValues();
+            if (attack.isEmpty()) attack.put(getString(R.string.none), new ArrayList<TypeElement>());
+            ArrayList<String> groupList = new ArrayList<>(attack.keySet());
+            TypeAdapter attackAdapter = new TypeAdapter(c,groupList, attack);
+            elv.setAdapter(attackAdapter);
+            for(int i=0; i < attackAdapter.getGroupCount(); i++) elv.expandGroup(i);
+            int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
+            int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
+            final PopupWindow pw = new PopupWindow(view, w, h, true);
+            pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            pw.setOutsideTouchable(true);
+            pw.setTouchInterceptor(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+                        pw.dismiss();
+                        return true;
                     }
-                });
-                pw.showAsDropDown(v);
-            }
+                    return false;
+                }
+            });
+            pw.showAsDropDown(v);
         });
 
         TextView unit1Calc = findViewById(R.id.dc_unit1_calculations);
-        unit1Calc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
-                int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
-                View popupView = getCalculationsPopup(calculator.getUnit1Stats());
-                final PopupWindow pw = new PopupWindow(popupView, w, h, true);
-                pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                pw.setOutsideTouchable(true);
-                pw.setTouchInterceptor(new View.OnTouchListener() {
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                            pw.dismiss();
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-                pw.showAsDropDown(v);
-            }
+        unit1Calc.setOnClickListener(v -> {
+            int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
+            int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
+            View popupView = getCalculationsPopup(calculator.getUnit1Stats());
+            final PopupWindow pw = new PopupWindow(popupView, w, h, true);
+            pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            pw.setOutsideTouchable(true);
+            pw.setTouchInterceptor((v13, event) -> {
+                if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+                    pw.dismiss();
+                    return true;
+                }
+                return false;
+            });
+            pw.showAsDropDown(v);
         });
         TextView unit2Calc = findViewById(R.id.dc_unit2_calculations);
-        unit2Calc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
-                int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
-                View popupView = getCalculationsPopup(calculator.getUnit2Stats());
-                final PopupWindow pw = new PopupWindow(popupView, w, h, true);
-                pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                pw.setOutsideTouchable(true);
-                pw.setTouchInterceptor(new View.OnTouchListener() {
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                            pw.dismiss();
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-                pw.showAsDropDown(v);
-            }
+        unit2Calc.setOnClickListener(v -> {
+            int w =(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 325, getResources().getDisplayMetrics());
+            int h = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 600, getResources().getDisplayMetrics());
+            View popupView = getCalculationsPopup(calculator.getUnit2Stats());
+            final PopupWindow pw = new PopupWindow(popupView, w, h, true);
+            pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            pw.setOutsideTouchable(true);
+            pw.setTouchInterceptor((v14, event) -> {
+                if(event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+                    pw.dismiss();
+                    return true;
+                }
+                return false;
+            });
+            pw.showAsDropDown(v);
         });
     }
 
@@ -444,35 +409,27 @@ public class DamageCalculatorActivity extends DrawerActivity {
         TextFilterAdapter adapter = new TextFilterAdapter(this, R.layout.autocomplete_text_layout, new ArrayList<>(unitNames));
         selector1.setThreshold(0);
         selector1.setAdapter(adapter);
-        selector1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                in.hideSoftInputFromWindow(arg1.getApplicationWindowToken(), 0);
-                String unitName = (String)arg0.getItemAtPosition(arg2);
-                int unitId = unitRelation.get(unitName);
-                setUnit1(unitId);
-                calculateStats();
-                selector1.setHint(unitName);
-                selector1.setText("");
-            }
-
+        selector1.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
+            InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            in.hideSoftInputFromWindow(arg1.getApplicationWindowToken(), 0);
+            String unitName = (String)arg0.getItemAtPosition(arg2);
+            int unitId = unitRelation.get(unitName);
+            setUnit1(unitId);
+            calculateStats();
+            selector1.setHint(unitName);
+            selector1.setText("");
         });
         selector2.setThreshold(0);
         selector2.setAdapter(adapter);
-        selector2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                in.hideSoftInputFromWindow(arg1.getApplicationWindowToken(), 0);
-                String unitName = (String)arg0.getItemAtPosition(arg2);
-                int unitId = unitRelation.get(unitName);
-                setUnit2(unitId);
-                calculateStats();
-                selector2.setHint(unitName);
-                selector2.setText("");
-            }
-
+        selector2.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
+            InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            in.hideSoftInputFromWindow(arg1.getApplicationWindowToken(), 0);
+            String unitName = (String)arg0.getItemAtPosition(arg2);
+            int unitId = unitRelation.get(unitName);
+            setUnit2(unitId);
+            calculateStats();
+            selector2.setHint(unitName);
+            selector2.setText("");
         });
     }
 
@@ -505,12 +462,9 @@ public class DamageCalculatorActivity extends DrawerActivity {
             }
         });
 
-        hill1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked && hill2.isChecked()) hill2.setChecked(false);
-                calculateStats();
-            }
+        hill1.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked && hill2.isChecked()) hill2.setChecked(false);
+            calculateStats();
         });
         setupAgeLayout();
     }
@@ -544,12 +498,9 @@ public class DamageCalculatorActivity extends DrawerActivity {
                 calculateStats();
             }
         });
-        hill2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked && hill1.isChecked()) hill1.setChecked(false);
-                calculateStats();
-            }
+        hill2.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked && hill1.isChecked()) hill1.setChecked(false);
+            calculateStats();
         });
         setupAgeLayout();
     }

@@ -8,8 +8,8 @@ android {
         applicationId "com.aoedb"
         minSdkVersion 24
         targetSdkVersion 32
-        versionCode 29
-        versionName "1.8.1"
+        versionCode 31
+        versionName "2.0"
     }
     buildTypes {
         release {

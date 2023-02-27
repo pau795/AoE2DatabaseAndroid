@@ -38,12 +38,12 @@
     <string name="title_activity_quiz">New Quiz</string>
     <string name="title_activity_score">Scores</string>
     <string name="title_activity_game_mechanics">Game Mechanics</string>
-    <string name="title_tech_tree_quiz">Tech Tree</string>
-    <string name="title_civilization_quiz">Civilizations</string>
-    <string name="title_unit_building_stats_quiz">Unit &amp; Building Stats</string>
-    <string name="title_unit_recognition_quiz">Unit Recognition</string>
-    <string name="title_technology_stats_quiz">Technology Stats</string>
-    <string name="title_unique_techs_quiz">Unique Technologies</string>
+    <string name="title_tech_tree_quiz">Tech Tree Quiz</string>
+    <string name="title_civilization_quiz">Civilizations Quiz</string>
+    <string name="title_unit_building_stats_quiz">Unit &amp; Building Stats Quiz</string>
+    <string name="title_unit_recognition_quiz">Unit Recognition Quiz</string>
+    <string name="title_technology_stats_quiz">Technology Stats Quiz</string>
+    <string name="title_unique_techs_quiz">Unique Technologies Quiz</string>
     <string name="title_loading">Loading</string>
     <string name="title_action_settings">Settings</string>
     <string name="title_about">About</string>
@@ -383,8 +383,10 @@
     <string name="required_building">Required Building</string>
     <string name="upgraded_from">Upgraded From</string>
     <string name="next_upgrade">Next Upgrade</string>
-	<string name="type_entities_attack">%s which deal %s damage</string>
-	<string name="type_entities_armor">%s which have %s armor</string>
+	<string name="type_entities_unit_attack">Units which deal %s damage</string>
+	<string name="type_entities_unit_armor">Units which have %s armor</string>
+	<string name="type_entities_building_attack">Buildings which have %s damage</string>
+	<string name="type_entities_building_armor">Buildings which have %s armor</string>
 	
     <!--UNIT VIEW STRINGS-->
     <string name="unit_preview">Unit Preview</string>
@@ -843,8 +845,8 @@
     <string name="bonus_tech_tree_description_59">Villagers cost -10/15/20/25% in Dark/Feudal/Castle/Imperial Age.</string>
     <string name="bonus_item_description_59">Villagers cost -10/15/20/25% in Dark/Feudal/Castle/Imperial Age.</string> 
     
-    <string name="bonus_tech_tree_description_60">Camel Riders attack 25% faster.</string>
-    <string name="bonus_item_description_60">\@ attack 25% faster.</string> 
+    <string name="bonus_tech_tree_description_60">Camel Riders attack 20% faster.</string>
+    <string name="bonus_item_description_60">\@ attack 20% faster.</string> 
     
     <string name="bonus_tech_tree_description_61">Gunpowder units have +1 melee and +1 pierce armor.</string>
     <string name="bonus_item_description_61">\@ have +1 melee and +1 pierce armor</string> 
@@ -996,8 +998,8 @@
     <string name="bonus_tech_tree_description_110">Can build Feitoria in Imperial Age.</string>
     <string name="bonus_item_description_110">Can build Feitoria in Imperial Age.</string> 
     
-    <string name="bonus_tech_tree_description_111">Line of sight is shared with the team starting in Dark Age.</string>
-    <string name="bonus_item_description_111">Line of sight is shared with the team starting in Dark Age.</string> 
+    <string name="bonus_tech_tree_description_111">Technologies are researched 25% faster (except aging up).</string>
+    <string name="bonus_item_description_111">\@ technology is researched 25% faster.</string> 
     
     <string name="bonus_tech_tree_description_112">Market commodity fee reduced to 5%.</string>
     <string name="bonus_item_description_112">Market commodity fee reduced to 5%.</string> 
@@ -1167,8 +1169,8 @@
     <string name="bonus_tech_tree_description_167">Blacksmith and Siege Workshop upgrades cost -50% food.</string>
     <string name="bonus_item_description_167">\@ upgrade cost 50% less food.||\@ research cost 50% less food.</string> 
     
-    <string name="bonus_tech_tree_description_168">Technologies are researched 30% faster (except aging up).</string>
-    <string name="bonus_item_description_168">\@ technology is researched 30% faster.</string> 
+    <string name="bonus_tech_tree_description_168">Foragers generate 33% of wood out of the food collected.</string>
+    <string name="bonus_item_description_168">Foragers generate 33% of wood out of the food collected.</string> 
     
     <string name="bonus_tech_tree_description_169">Newly-constructed Town Centers spawn two sheep starting in Castle Age.</string>
     <string name="bonus_item_description_169">Newly-constructed Town Centers spawn two sheep starting in Castle Age.</string> 
@@ -1194,8 +1196,8 @@
     <string name="bonus_tech_tree_description_176">Castles and Town Centers (except the first Town Center in nomad starts) are built twice as fast.</string>
     <string name="bonus_item_description_176">\@ is built twice as fast.</string> 
     
-    <string name="bonus_tech_tree_description_177">Land military units (except Siege Weapons) receive 50% less bonus damage.</string>
-    <string name="bonus_item_description_177">\@ receive 50% less bonus damage.</string> 
+    <string name="bonus_tech_tree_description_177">Land military units (except Siege Weapons) receive 33% less bonus damage.</string>
+    <string name="bonus_item_description_177">\@ receive 33% less bonus damage.</string> 
     
     <string name="bonus_tech_tree_description_178">Farm upgrades provide twice the amount of food.</string>
     <string name="bonus_item_description_178">|\@ food upgrades provide twice the amount of food.|\@ research provide twice the amount of food.</string> 
@@ -1206,8 +1208,8 @@
     <string name="bonus_tech_tree_description_180">Transport Ships have +5 line of sight and cost -50% less.</string>
     <string name="bonus_item_description_180">\@ have +5 line of sight and cost -50% less.</string> 
     
-    <string name="bonus_tech_tree_description_181">Economic upgrades cost 50% less food.</string>
-    <string name="bonus_item_description_181">\@ cost 50% less food.</string> 
+    <string name="bonus_tech_tree_description_181">Economic upgrades cost 40% less food.</string>
+    <string name="bonus_item_description_181">\@ cost 40% less food.</string> 
     
     <string name="bonus_tech_tree_description_182">Stables and Archery Ranges cost -75 wood.</string>
     <string name="bonus_item_description_182">\@ cost -75 wood.</string> 
@@ -1239,8 +1241,8 @@
     <string name="bonus_tech_tree_description_191">Mills are replaced by Folwarks.</string>
     <string name="bonus_item_description_191">Mills are replaced by Folwarks.</string> 
     
-    <string name="bonus_tech_tree_description_192">Stone Miners generate 50% of gold out of the stone collected.</string>
-    <string name="bonus_item_description_192">Stone Miners generate 50% of gold out of the stone collected.</string> 
+    <string name="bonus_tech_tree_description_192">Stone Miners generate 33% of gold out of the stone collected.</string>
+    <string name="bonus_item_description_192">Stone Miners generate 33% of gold out of the stone collected.</string> 
     
     <string name="bonus_tech_tree_description_193">Light Cavalry line have +1 damage against Archers.</string>
     <string name="bonus_item_description_193">\@ have +1 damage against Archers.</string> 
@@ -1266,8 +1268,8 @@
 	<string name="bonus_tech_tree_description_200">Receive +200 wood when Advancing to the next Age.</string>
 	<string name="bonus_item_description_200">Receive +200 wood when Advancing to the next Age.</string>
 
-	<string name="bonus_tech_tree_description_201">Fishermen and Fishing Ships carry have +15 carry capacity.</string>
-	<string name="bonus_item_description_201">\@ carry have +15 carry capacity.</string>
+	<string name="bonus_tech_tree_description_201">Fishermen and Fishing Ships have +15 carry capacity.</string>
+	<string name="bonus_item_description_201">\@ have +15 carry capacity.</string>
 
 	<string name="bonus_tech_tree_description_202">Barracks technologies cost 50% less.</string>
 	<string name="bonus_item_description_202">\@ upgrade cost 50% less.||\@ research cost 50% less.</string>
@@ -1284,14 +1286,17 @@
 	<string name="bonus_tech_tree_description_206">Livestock can be garrisoned inside Mills to produce food.</string>
 	<string name="bonus_item_description_206">Livestock can be garrisoned inside Mills to produce food.</string>
 
-	<string name="bonus_tech_tree_description_207">Mounted Units deal 50% more bonus damage.</string>
-	<string name="bonus_item_description_207">\@ deal 50% more bonus damage.</string>
+	<string name="bonus_tech_tree_description_207">Mounted Units deal 20%/30%/40% more bonus damage in Feudal/Castle/Imperial Age.</string>
+	<string name="bonus_item_description_207">\@ deal 20%/30%/40% more bonus damage in Feudal/Castle/Imperial Age.</string>
 
 	<string name="bonus_tech_tree_description_208">Fishing Ships can be garrisoned inside Docks.</string>
 	<string name="bonus_item_description_208">Fishing Ships can be garrisoned inside Docks.</string>
 
 	<string name="bonus_tech_tree_description_209">Camel and Elephant units are trained 25% faster.</string>
 	<string name="bonus_item_description_209">\@ are trained 25% faster.</string>
+	
+	<string name="bonus_tech_tree_description_210">Monks have +3 melee and +3 pierce armor.</string>
+	<string name="bonus_item_description_210">\@ have +3 melee and +3 pierce armor.</string>
  
     <!--building_description.xml-->
      
@@ -1686,6 +1691,7 @@
     <string name="eco_name_21">Food Relic</string>
     <string name="eco_name_22">Gold Stone Miners</string>
     <string name="eco_name_23">Gold Lumberjacks</string>
+    <string name="eco_name_24">Wood Foragers</string>
      
     <!--gathering_rates.xml-->
      
@@ -1711,7 +1717,34 @@
     <string name="gathering_rates_19">Feitoria Stone</string>
     <string name="gathering_rates_20">Keshik</string>
     <string name="gathering_rates_21">Gold generated by Lumberjacks</string>
+	<string name="gathering_rates_22">Wood generated by Foragers</string>
 	
+	<!--hidden_bonus.xml-->
+	
+	<string name ="hidden_bonus_name_1">Scout upgrade</string>
+	<string name ="hidden_bonus_name_2">Light Cav LoS</string>
+	<string name ="hidden_bonus_name_3">Eagle upgrade</string>
+	<string name ="hidden_bonus_name_4">Free tracking</string>
+	<string name ="hidden_bonus_name_5">Outpost upgrade</string>
+	<string name ="hidden_bonus_name_6">Stone wall upgrade</string>
+	<string name ="hidden_bonus_name_7">Watch Tower upgrade</string>
+	<string name ="hidden_bonus_name_8">Town Center upgrade</string>
+	<string name ="hidden_bonus_name_9">House upgrade</string>
+	<string name ="hidden_bonus_name_10">Lumber/Mining/Mill upgrade</string>
+	<string name ="hidden_bonus_name_11">Dock upgrade</string>
+	<string name ="hidden_bonus_name_12">Barracks upgrade</string>
+	<string name ="hidden_bonus_name_13">Blacksmith upgrade</string>
+	<string name ="hidden_bonus_name_14">Market upgrade</string>
+	<string name ="hidden_bonus_name_15">Archery Range upgrade</string>
+	<string name ="hidden_bonus_name_16">Stable upgrade</string>
+	<string name ="hidden_bonus_name_17">Monastery upgrade</string>
+	<string name ="hidden_bonus_name_18">University upgrade</string>
+	<string name ="hidden_bonus_name_19">Siege Workshop upgrade</string>
+	<string name ="hidden_bonus_name_20">Palisade Walls and Gates upgrade</string>
+	<string name ="hidden_bonus_name_21">Serjeant upgrade</string>
+	<string name ="hidden_bonus_name_22">Donjon upgrade</string>
+	<string name ="hidden_bonus_name_23">Heavy Scorpion proyectile</string>
+	<string name ="hidden_bonus_name_24">Camel Scout upgrade</string>
      
     <!--history_list.xml-->
      
@@ -2783,7 +2816,7 @@
     <string name="tech_description_nominative_127">Parthian Tactics</string>
     <string name="tech_description_quick_127"/>
     <string name="tech_description_brief_127">Cavalry Archers +1 melee/+2 pierce armor, and get extra attack against Spearmen.</string>
-    <string name="tech_description_long_127">Cavalry Archers, Mangudai, Kipchak and Elephant Archers have +1 melee/+2 pierce armor; Cavalry Archers get +4 attack against Spearmen. Mangudai, Kipchak and Elephant Archers +2 Attack against Spearmen.</string>
+    <string name="tech_description_long_127">Cavalry Archers, Mangudai, Kipchak and Elephant Archers have +1 melee/+2 pierce armor and get +4 attack against Spearmen.</string>
     <string name="tech_description_extra_127"/> 
     
     <string name="tech_description_nominative_128">Hussar</string>
@@ -4659,7 +4692,7 @@
     <string name="unit_description_nominative_149">Coustilliers</string>
     <string name="unit_description_quick_149">Charging Cavalry</string>
     <string name="unit_description_brief_149"/>
-    <string name="unit_description_long_149">Burgundian Unique Unit. Heavy Cavalry with a strong charging attack. It needs 40 seconds to charge, which results in 25 additional damage in the first hit.</string>
+    <string name="unit_description_long_149">Burgundian Unique Unit. Heavy Cavalry with a strong charging attack. It needs 40 seconds to charge, which results in 20 additional damage in the first hit.</string>
     <string name="unit_description_extra_149"/> 
     
     <string name="unit_description_nominative_150">Serjeants</string>
@@ -4671,7 +4704,7 @@
     <string name="unit_description_nominative_151">Elite Coustilliers</string>
     <string name="unit_description_quick_151">Charging Cavalry</string>
     <string name="unit_description_brief_151"/>
-    <string name="unit_description_long_151">Burgundian Unique Unit. Heavy Cavalry with a strong charging attack. It needs 40 seconds to charge, which results in 30 additional damage in the first hit.</string>
+    <string name="unit_description_long_151">Burgundian Unique Unit. Heavy Cavalry with a strong charging attack. It needs 40 seconds to charge, which results in 25 additional damage in the first hit.</string>
     <string name="unit_description_extra_151"/> 
     
     <string name="unit_description_nominative_152">Elite Serjeants</string>
@@ -4737,7 +4770,7 @@
 	<string name="unit_description_nominative_162">Shrivamsha Riders</string>
     <string name="unit_description_quick_162">Light Cavalry that can dodge arrows</string>
     <string name="unit_description_brief_162"/>
-    <string name="unit_description_long_162">Gurjara Unique Unit. Fast Cavalry unit which can dodge arrows. Can dodge up to 5 arrows, which recharge over 15 seconds (1 arrow each 3 seconds).</string>
+    <string name="unit_description_long_162">Gurjara Unique Unit. Fast Cavalry unit which can dodge arrows. Can dodge up to 5 arrows, which recharge over 20 seconds (1 arrow each 4 seconds).</string>
     <string name="unit_description_extra_162"/>
 		
 	<string name="unit_description_nominative_163">Armored Elephants</string>
@@ -4767,7 +4800,7 @@
 	<string name="unit_description_nominative_167">Chakram Thrower</string>
     <string name="unit_description_quick_167">Piercing ranged Infantry</string>
     <string name="unit_description_brief_167"/>
-    <string name="unit_description_long_167">Gurjara Unique Unit. Ranged Infantry which throws piercing Chakrams.</string>
+    <string name="unit_description_long_167">Gurjara Unique Unit. Ranged Infantry which throws piercing Chakrams. Pierced units will receive 100% damage instead of the usual 50%.</string>
     <string name="unit_description_extra_167"/>	
 	
 	<string name="unit_description_nominative_168">Thirisadai</string>
@@ -4785,7 +4818,7 @@
 	<string name="unit_description_nominative_170">Elite Shrivamsha Riders</string>
     <string name="unit_description_quick_170">Light Cavalry that can dodge arrows</string>
     <string name="unit_description_brief_170"/>
-    <string name="unit_description_long_170">Gurjara Unique Unit. Fast Cavalry unit which can dodge arrows. Can dodge up to 7 arrows, which recharge over 15 seconds (1 arrow each 2.14 seconds).</string>
+    <string name="unit_description_long_170">Gurjara Unique Unit. Fast Cavalry unit which can dodge arrows. Can dodge up to 7 arrows, which recharge over 20 seconds (1 arrow each 2.86 seconds).</string>
     <string name="unit_description_extra_170"/>
 	
 	<string name="unit_description_nominative_171">Siege Elephants</string>
@@ -4815,7 +4848,7 @@
 	<string name="unit_description_nominative_175">Elite Chakram Thrower</string>
     <string name="unit_description_quick_175">Piercing ranged Infantry</string>
     <string name="unit_description_brief_175"/>
-    <string name="unit_description_long_175">Gurjara Unique Unit. Ranged Infantry which throws piercing Chakrams.</string>
+    <string name="unit_description_long_175">Gurjara Unique Unit. Ranged Infantry which throws piercing Chakrams. Pierced units will receive 100% damage instead of the usual 50%.</string>
     <string name="unit_description_extra_175"/>	
 	
  
