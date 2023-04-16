@@ -476,7 +476,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="@dimen/tt_5box_layout"
+                        android:layout_width="@dimen/tt_6box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -513,6 +513,14 @@
                                 app:left_margin="true"
                                 app:right_margin="true"
                                 app:top_connector="true"
+                                app:top_left_connector="true"
+                                app:top_right_connector="true" />
+
+                            <com.aoedb.widgets.TechTreeEmptyBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:line="true"
+                                app:right_margin="true"
                                 app:top_left_connector="true"
                                 app:top_right_connector="true" />
 
@@ -792,7 +800,7 @@
 
                     <LinearLayout
                         android:id="@+id/tt_donjon_layout1"
-                        android:layout_width="@dimen/tt_1box_layout"
+                        android:layout_width="@dimen/tt_2box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -800,7 +808,9 @@
 
                     <LinearLayout
                         android:layout_width="@dimen/tt_8box_layout"
-                        android:layout_height="match_parent"></LinearLayout>
+                        android:layout_height="match_parent">
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="@dimen/tt_5box_layout2"
@@ -1238,7 +1248,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="@dimen/tt_5box_layout"
+                        android:layout_width="@dimen/tt_6box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -1283,7 +1293,14 @@
                                 app:entity_id="17"
                                 app:entity_type="tech"
                                 app:right_margin="true"
+                                app:bottom_connector="true"
                                 app:top_connector="true" />
+
+                            <com.aoedb.widgets.TechTreeEmptyBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:line="true"
+                                app:right_margin="true" />
 
                             <com.aoedb.widgets.TechTreeEmptyBox
                                 android:layout_width="wrap_content"
@@ -1321,7 +1338,13 @@
                             <com.aoedb.widgets.TechTreeEmptyBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                app:line="false"
+                                app:line="true"
+                                app:right_margin="true" />
+
+                            <com.aoedb.widgets.TechTreeEmptyBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:line="true"
                                 app:right_margin="true" />
 
                             <com.aoedb.widgets.TechTreeEmptyBox
@@ -1784,7 +1807,7 @@
 
                     <LinearLayout
                         android:id="@+id/tt_donjon_layout2"
-                        android:layout_width="@dimen/tt_1box_layout"
+                        android:layout_width="@dimen/tt_2box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -1816,8 +1839,19 @@
                                 android:layout_height="match_parent"
                                 app:bottom_connector="true"
                                 app:entity_id="150"
+                                app:top_right_connector="true"
                                 app:entity_type="special_unique_unit"
                                 app:left_margin="true"
+                                app:right_margin="true"
+                                app:top_connector="true" />
+
+                            <com.aoedb.widgets.TechTreeBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:top_left_connector="true"
+                                app:bottom_connector="true"
+                                app:entity_id="11"
+                                app:entity_type="unit"
                                 app:right_margin="true"
                                 app:top_connector="true" />
                         </LinearLayout>
@@ -1826,7 +1860,9 @@
 
                     <LinearLayout
                         android:layout_width="@dimen/tt_8box_layout"
-                        android:layout_height="match_parent"></LinearLayout>
+                        android:layout_height="match_parent">
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="@dimen/tt_5box_layout2"
@@ -2305,7 +2341,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="@dimen/tt_5box_layout"
+                        android:layout_width="@dimen/tt_6box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -2347,7 +2383,16 @@
                             <com.aoedb.widgets.TechTreeBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                app:top_connector="true"
+                                app:entity_id="244"
+                                app:entity_type="tech"
+                                app:right_margin="true" />
+
+                            <com.aoedb.widgets.TechTreeBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
                                 app:entity_id="52"
+                                app:top_connector="true"
                                 app:entity_type="tech"
                                 app:right_margin="true" />
 
@@ -2384,6 +2429,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 app:line="true"
+                                app:right_margin="true" />
+
+                            <com.aoedb.widgets.TechTreeEmptyBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:line="false"
                                 app:right_margin="true" />
 
                             <com.aoedb.widgets.TechTreeEmptyBox
@@ -3181,7 +3232,7 @@
 
                     <LinearLayout
                         android:id="@+id/tt_donjon_layout3"
-                        android:layout_width="@dimen/tt_1box_layout"
+                        android:layout_width="@dimen/tt_2box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -3195,7 +3246,18 @@
                             <com.aoedb.widgets.TechTreeEmptyBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                app:left_margin="true"
                                 app:line="true" />
+
+                            <com.aoedb.widgets.TechTreeBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:bottom_connector="true"
+                                app:left_margin="true"
+                                app:entity_id="25"
+                                app:entity_type="unit"
+                                app:right_margin="true"
+                                app:top_connector="true" />
 
                         </LinearLayout>
 
@@ -3209,7 +3271,16 @@
                             <com.aoedb.widgets.TechTreeEmptyBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                app:left_margin="true"
+                                app:right_margin="true"
                                 app:line="true" />
+
+                            <com.aoedb.widgets.TechTreeEmptyBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:right_margin="true"
+                                app:line="true" />
+
                         </LinearLayout>
                     </LinearLayout>
 
@@ -3792,7 +3863,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="@dimen/tt_5box_layout"
+                        android:layout_width="@dimen/tt_6box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -3836,10 +3907,18 @@
                                 app:entity_type="special_unique_unit"
                                 app:right_margin="true" />
 
+                            <com.aoedb.widgets.TechTreeBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:entity_id="153"
+                                app:entity_type="special_unique_unit"
+                                app:right_margin="true" />
+
                             <com.aoedb.widgets.TechTreeEmptyBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 app:right_margin="true" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -3857,6 +3936,12 @@
                                 app:left_margin="true"
                                 app:right_margin="true"
                                 app:top_connector="true" />
+
+                            <com.aoedb.widgets.TechTreeEmptyBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:line="false"
+                                app:right_margin="true" />
 
                             <com.aoedb.widgets.TechTreeEmptyBox
                                 android:layout_width="wrap_content"
@@ -4717,7 +4802,7 @@
 
                     <LinearLayout
                         android:id="@+id/tt_donjon_layout4"
-                        android:layout_width="@dimen/tt_1box_layout"
+                        android:layout_width="@dimen/tt_2box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -4737,6 +4822,14 @@
                                 app:right_margin="true"
                                 app:top_connector="true" />
 
+                            <com.aoedb.widgets.TechTreeBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:entity_id="82"
+                                app:entity_type="unit"
+                                app:right_margin="true"
+                                app:top_connector="true" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -4750,6 +4843,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 app:left_margin="true"
+                                app:line="false"
+                                app:right_margin="true" />
+
+                            <com.aoedb.widgets.TechTreeEmptyBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
                                 app:line="false"
                                 app:right_margin="true" />
                         </LinearLayout>
@@ -4900,11 +4999,9 @@
                                 app:left_margin="true"
                                 app:right_margin="true" />
 
-                            <com.aoedb.widgets.TechTreeBox
+                            <com.aoedb.widgets.TechTreeEmptyBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                app:entity_id="153"
-                                app:entity_type="special_unique_unit"
                                 app:right_margin="true" />
 
                             <com.aoedb.widgets.TechTreeEmptyBox
