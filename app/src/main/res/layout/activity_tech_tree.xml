@@ -4411,9 +4411,11 @@
                                 android:layout_height="match_parent"
                                 app:right_margin="true" />
 
-                            <com.aoedb.widgets.TechTreeEmptyBox
+                            <com.aoedb.widgets.TechTreeBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                app:entity_id="177"
+                                app:entity_type="unit"
                                 app:right_margin="true" />
 
                             <com.aoedb.widgets.TechTreeBox

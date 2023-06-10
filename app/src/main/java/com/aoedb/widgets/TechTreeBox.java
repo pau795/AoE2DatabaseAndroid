@@ -74,7 +74,7 @@ public class TechTreeBox extends TechTreeItem {
         entityType = array.getInt(R.styleable.TechTreeBox_entity_type, UNIT);
         entityID = array.getInt(R.styleable.TechTreeBox_entity_id, 1);
         enabled = array.getBoolean(R.styleable.TechTreeBox_enabled, true);
-        if (entityType == UNIQUE_UNIT || entityType == ELITE_UNIQUE_UNIT || entityType == CASTLE_UNIQUE_TECH || entityType == IMP_UNIQUE_TECH || (entityType == UNIT && entityID == 90) || (entityType == BUILDING && entityID == 4) )
+        if (entityType == UNIQUE_UNIT || entityType == ELITE_UNIQUE_UNIT || entityType == CASTLE_UNIQUE_TECH || entityType == IMP_UNIQUE_TECH || (entityType == UNIT && entityID == 90) || (entityType == UNIT && entityID == 80) || (entityType == UNIT && entityID == 81) || (entityType == BUILDING && entityID == 4) )
             techTreeData.addUniqueBox(this);
         FrameLayout f = findViewById(R.id.tt_box);
         displayBox();
@@ -95,17 +95,36 @@ public class TechTreeBox extends TechTreeItem {
         switch (entityType){
             case UNIT:
                 int unitBoxColor;
-                if (entityID == 90 || entityID == 154) {
-                    if (civID == 34 || civID == 39) {
-                        entityID = 154;
-                        unitBoxColor = R.color.purple;
+                if (entityID == 90 || entityID == 154 || entityID == 80 || entityID == 178)  {
+                    if (entityID == 90 || entityID == 154) {
+                        if (civID == 34 || civID == 39) {
+                            entityID = 154;
+                            unitBoxColor = R.color.purple;
+                        } else {
+                            entityID = 90;
+                            unitBoxColor = R.color.teal;
+                        }
                     }
                     else {
-                        entityID = 90;
-                        unitBoxColor = R.color.teal;
+                        if (civID == 43){
+                            entityID = 178;
+                            this.setBottomConnector(false);
+                            unitBoxColor = R.color.purple;
+                        }
+                        else {
+                            entityID = 80;
+                            this.setBottomConnector(true);
+                            unitBoxColor = R.color.teal;
+
+                        }
                     }
                 }
                 else unitBoxColor = R.color.teal;
+                if (entityID == 81){
+                    if (civID == 43) this.setVisibility(INVISIBLE);
+                    else this.setVisibility(VISIBLE);
+                }
+
                 l = Database.getElement(Database.UNIT_LIST, entityID);
                 layout.setBackgroundColor(c.getColor(unitBoxColor));
                 break;
