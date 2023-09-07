@@ -3,13 +3,13 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
     }
-    compileSdkVersion 32
+    compileSdkVersion 33
     defaultConfig {
         applicationId "com.aoedb"
         minSdkVersion 24
-        targetSdkVersion 32
-        versionCode 35
-        versionName "2.4"
+        targetSdkVersion 33
+        versionCode 36
+        versionName "2.5"
     }
     buildTypes {
         release {
