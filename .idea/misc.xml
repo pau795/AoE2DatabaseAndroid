@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/activity_civilization_view.xml" value="0.36666666666666664" />
         <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/activity_tech_tree.xml" value="0.25" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/activity_tech_tree_quiz.xml" value="0.36666666666666664" />
+        <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/civilization_entity_button.xml" value="0.36666666666666664" />
         <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_calculator_popup.xml" value="0.36666666666666664" />
         <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_damage_row.xml" value="0.36666666666666664" />
         <entry key="..\:/Proyectos/AoE2DatabaseAndroid/app/src/main/res/layout/damage_calculator_efficiency_layout.xml" value="0.36666666666666664" />

@@ -216,6 +216,8 @@ public class Utils {
             case Database.RELICS: return "stat_name_25";
             case Database.IGNORE_ARMOR: return "stat_name_26";
             case Database.RESIST_ARMOR_IGNORE: return "stat_name_27";
+            case Database.UP_HILL_RESIST: return "stat_name_28";
+            case Database.DOWN_HILL_RESIST: return "stat_name_29";
             default: return "";
         }
     }
@@ -249,6 +251,8 @@ public class Utils {
             case 25: return Database.RELICS;
             case 26: return Database.IGNORE_ARMOR;
             case 27: return Database.RESIST_ARMOR_IGNORE;
+            case 28: return Database.UP_HILL_RESIST;
+            case 29: return Database.DOWN_HILL_RESIST;
             default: return "";
         }
     }
@@ -331,14 +335,12 @@ public class Utils {
                 final PopupWindow pw = new PopupWindow(view, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
                 pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 pw.setOutsideTouchable(true);
-                pw.setTouchInterceptor(new View.OnTouchListener() {
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                            pw.dismiss();
-                            return true;
-                        }
-                        return false;
+                pw.setTouchInterceptor((v, event) -> {
+                    if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+                        pw.dismiss();
+                        return true;
                     }
+                    return false;
                 });
                 pw.showAtLocation(parent, Gravity.CENTER, 0, 0);
                 View container = pw.getContentView().getRootView();
@@ -354,24 +356,21 @@ public class Utils {
     public static String getLanguageFlagString(String lang){
         switch (lang){
             case Database.SPANISH: return Database.SPANISH_FLAG;
-            case Database.DEUTSCH: return Database.DEUTSCH_FLAG;
             case Database.ENGLISH: return Database.ENGLISH_FLAG;
             default: return Database.DEFAULT_FLAG;
         }
     }
 
     public static int getLanguagePosition(String lang){
-        switch (lang){
-            case Database.SPANISH: return 1;
-            case Database.DEUTSCH: return 2;
-            default: return 0;
+        if (Database.SPANISH.equals(lang)) {
+            return 1;
         }
+        return 0;
     }
 
     public static String getLanguageFromFlag(String flagLang){
         switch (flagLang){
             case Database.SPANISH_FLAG: return Database.SPANISH;
-            case Database.DEUTSCH_FLAG: return Database.DEUTSCH;
             case Database.ENGLISH_FLAG: return Database.ENGLISH;
             default: return Database.DEFAULT_LANGUAGE;
         }

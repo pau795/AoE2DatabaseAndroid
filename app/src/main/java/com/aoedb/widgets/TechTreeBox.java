@@ -40,7 +40,10 @@ import com.aoedb.database.Database;
 import com.aoedb.database.Utils;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class TechTreeBox extends TechTreeItem {
@@ -74,16 +77,18 @@ public class TechTreeBox extends TechTreeItem {
         entityType = array.getInt(R.styleable.TechTreeBox_entity_type, UNIT);
         entityID = array.getInt(R.styleable.TechTreeBox_entity_id, 1);
         enabled = array.getBoolean(R.styleable.TechTreeBox_enabled, true);
-        if (entityType == UNIQUE_UNIT || entityType == ELITE_UNIQUE_UNIT || entityType == CASTLE_UNIQUE_TECH || entityType == IMP_UNIQUE_TECH || (entityType == UNIT && entityID == 90) || (entityType == UNIT && entityID == 80) || (entityType == UNIT && entityID == 81) || (entityType == BUILDING && entityID == 4) )
+        Set<Integer> specialBuildings = new HashSet<>();
+        Collections.addAll(specialBuildings, 4, 20, 36, 37);
+        Set<Integer> specialUnits = new HashSet<>();
+        Collections.addAll(specialUnits, 80, 81, 90, 153, 92, 178, 183);
+
+        if (entityType == UNIQUE_UNIT || entityType == ELITE_UNIQUE_UNIT || entityType == CASTLE_UNIQUE_TECH || entityType == IMP_UNIQUE_TECH || entityType == SPECIAL_UNIQUE_UNIT)
             techTreeData.addUniqueBox(this);
+        if (entityType == BUILDING && specialBuildings.contains(entityID)) techTreeData.addUniqueBox(this);
+        if (entityType == UNIT && specialUnits.contains(entityID)) techTreeData.addUniqueBox(this);
         FrameLayout f = findViewById(R.id.tt_box);
         displayBox();
-        f.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createPopup();
-            }
-        });
+        f.setOnClickListener(v -> createPopup());
     }
 
     public void displayBox(){
@@ -95,7 +100,8 @@ public class TechTreeBox extends TechTreeItem {
         switch (entityType){
             case UNIT:
                 int unitBoxColor;
-                if (entityID == 90 || entityID == 154 || entityID == 80 || entityID == 178)  {
+                //Remember to add the entityIDs on the specialUnit/Building Hashset to mark them as unique entities to reload
+                if (entityID == 90 || entityID == 154 || entityID == 80 || entityID == 178 || entityID == 92 || entityID == 183 )  {
                     if (entityID == 90 || entityID == 154) {
                         if (civID == 34 || civID == 39) {
                             entityID = 154;
@@ -105,7 +111,7 @@ public class TechTreeBox extends TechTreeItem {
                             unitBoxColor = R.color.teal;
                         }
                     }
-                    else {
+                    else if (entityID == 80 || entityID == 178) {
                         if (civID == 43){
                             entityID = 178;
                             this.setBottomConnector(false);
@@ -117,6 +123,17 @@ public class TechTreeBox extends TechTreeItem {
                             unitBoxColor = R.color.teal;
 
                         }
+                    }
+                    else {
+                        if (civID == 23) {
+                            entityID = 183;
+                            unitBoxColor = R.color.purple;
+                        }
+                        else{
+                            entityID = 92;
+                            unitBoxColor = R.color.teal;
+                        }
+
                     }
                 }
                 else unitBoxColor = R.color.teal;
@@ -132,6 +149,10 @@ public class TechTreeBox extends TechTreeItem {
                 if (entityID == 4 || entityID == 34){
                     if (civID == 39) entityID = 34;
                     else entityID = 4;
+                }
+                if (entityID == 20 || entityID == 37){
+                    if (civID == 44 || civID == 45) entityID = 37;
+                    else entityID = 20;
                 }
                 l = Database.getElement(Database.BUILDING_LIST, entityID);
                 layout.setBackgroundColor(c.getColor(R.color.red));
@@ -165,10 +186,13 @@ public class TechTreeBox extends TechTreeItem {
                 layout.setBackgroundColor(c.getColor(R.color.green));
                 break;
             default:
+                if (entityID == 23 || entityID == 180){
+                    if (civID == 44) entityID = 180;
+                    else entityID = 23;
+                }
                 l = Database.getElement(Database.UNIT_LIST, entityID);
                 layout.setBackgroundColor(c.getColor(R.color.purple));
                 break;
-
         }
 
         text.setText(l.getName());

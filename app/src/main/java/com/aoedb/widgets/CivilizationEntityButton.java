@@ -24,7 +24,7 @@ import com.aoedb.database.Utils;
 
 public class CivilizationEntityButton extends LinearLayout {
 
-    final static int UNIQUE_UNIT1 = 0, UNIQUE_UNIT2 = 1, UNIQUE_UNIT3 = 5, CASTLE_UNIQUE_TECH = 2, IMPERIAL_UNIQUE_TECH = 3, UNIQUE_BUILDING = 4;
+    final static int UNIQUE_UNIT1 = 0, UNIQUE_UNIT2 = 1, UNIQUE_UNIT3 = 2, CASTLE_UNIQUE_TECH = 3, IMPERIAL_UNIQUE_TECH = 4, UNIQUE_BUILDING1 = 5, UNIQUE_BUILDING2 = 6;
 
     int buttonType;
     AttributeSet attrs;
@@ -86,11 +86,18 @@ public class CivilizationEntityButton extends LinearLayout {
                 entityID = civ.getUniqueTechList().get(1);
                 type = Database.TECH;
                 break;
-            case UNIQUE_BUILDING:
+            case UNIQUE_BUILDING1:
                 nameText.setText(Database.getBuilding(civ.getUniqueBuildingList().get(0)).getName());
                 descriptionText.setText(Database.getBuilding(civ.getUniqueBuildingList().get(0)).getDescriptor().getQuickDescription());
                 icon.setImageResource(Database.getBuilding(civ.getUniqueBuildingList().get(0)).getNameElement().getImage());
                 entityID = civ.getUniqueBuildingList().get(0);
+                type = Database.BUILDING;
+                break;
+            case UNIQUE_BUILDING2:
+                nameText.setText(Database.getBuilding(civ.getUniqueBuildingList().get(1)).getName());
+                descriptionText.setText(Database.getBuilding(civ.getUniqueBuildingList().get(1)).getDescriptor().getQuickDescription());
+                icon.setImageResource(Database.getBuilding(civ.getUniqueBuildingList().get(1)).getNameElement().getImage());
+                entityID = civ.getUniqueBuildingList().get(1);
                 type = Database.BUILDING;
                 break;
             default:

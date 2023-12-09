@@ -46,44 +46,26 @@ public class CivilizationViewActivity extends DrawerActivity {
         mp = MediaPlayer.create(c, soundID);
 
         play = findViewById(R.id.civ_theme_icon);
-        play.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v) {
-                ImageView i = (ImageView) v;
-                if (!mp.isPlaying())  {
-                    mp.start();
-                    i.setImageResource(R.drawable.stopicon_red);
-                }
-                else resetPlayer();
+        play.setOnClickListener(v -> {
+            ImageView i = (ImageView) v;
+            if (!mp.isPlaying())  {
+                mp.start();
+                i.setImageResource(R.drawable.stopicon_red);
             }
+            else resetPlayer();
         });
 
-        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                play.setImageResource(R.drawable.playicon_red);
-            }
-        });
+        mp.setOnCompletionListener(mp -> play.setImageResource(R.drawable.playicon_red));
 
         mp.start();
         resetPlayer();
-        listener = new OnItemClicked() {
-            @Override
-            public void onItemClicked() {
-                resetPlayer();
-            }
-        };
+        listener = this::resetPlayer;
 
         TextView name = findViewById(R.id.civ_name);
         name.setText(civ.getName());
         ImageView icon = findViewById(R.id.civ_icon);
         icon.setImageResource(civ.getNameElement().getImage());
-        icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Utils.showPopupIcon(v, c, civ.getNameElement().getName(), civ.getNameElement().getImage(), true, "red");
-            }
-        });
+        icon.setOnClickListener(v -> Utils.showPopupIcon(v, c, civ.getNameElement().getName(), civ.getNameElement().getImage(), true, "red"));
         TextView style = findViewById(R.id.civ_style);
         style.setText(civ.getCivStyle());
         TextView bonuses = findViewById(R.id.civ_bonuses);
@@ -96,11 +78,11 @@ public class CivilizationViewActivity extends DrawerActivity {
         if (civ.getUniqueUnitList().size() > 1) {
             CivilizationEntityButton uniqueUnit2 = findViewById(R.id.unique_unit2);
             uniqueUnit2.setVisibility(View.VISIBLE);
-            uniqueUnit2.setupButton(civ, listener, true);;
+            uniqueUnit2.setupButton(civ, listener, true);
             if (civ.getUniqueUnitList().size() > 2) {
                 CivilizationEntityButton uniqueUnit3 = findViewById(R.id.unique_unit3);
                 uniqueUnit3.setVisibility(View.VISIBLE);
-                uniqueUnit3.setupButton(civ, listener, true);;
+                uniqueUnit3.setupButton(civ, listener, true);
 
             }
         }
@@ -123,17 +105,19 @@ public class CivilizationViewActivity extends DrawerActivity {
             ubdiv.setVisibility(View.VISIBLE);
             ubs1.setVisibility(View.VISIBLE);
             ubs2.setVisibility(View.VISIBLE);
+            if (civ.getUniqueBuildingList().size() > 1) {
+                CivilizationEntityButton uniqueBuilding2 = findViewById(R.id.unique_building2);
+                uniqueBuilding2.setupButton(civ, listener, true);
+                uniqueBuilding2.setVisibility(View.VISIBLE);
+            }
         }
 
         ImageView techTree = findViewById(R.id.civ_tech_tree_icon);
-        techTree.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v) {
-                resetPlayer();
-                Intent i =  new Intent(c, LoadingTechTreeActivity.class);
-                i.putExtra(Database.CIV, civID);
-                startActivity(i);
-            }
+        techTree.setOnClickListener(v -> {
+            resetPlayer();
+            Intent i =  new Intent(c, LoadingTechTreeActivity.class);
+            i.putExtra(Database.CIV, civID);
+            startActivity(i);
         });
 
     }

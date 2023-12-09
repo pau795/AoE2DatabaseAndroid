@@ -253,7 +253,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                app:button_type="unique_building"/>
+                app:button_type="unique_building1"/>
+
+            <com.aoedb.widgets.CivilizationEntityButton
+                android:id="@+id/unique_building2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:button_type="unique_building2"/>
             <View
                 android:id="@+id/unique_building_space2"
                 android:visibility="gone"
