@@ -65,7 +65,7 @@ public class Utils {
                 calculatedString += "%";
             }
 
-            if (addition) return baseString + " (+" + calculatedString + ")";
+            if (addition && calculated.doubleValue() >= 0) return baseString + " (+" + calculatedString + ")";
             else return baseString+ " ("+ calculatedString+")";
         }
     }
