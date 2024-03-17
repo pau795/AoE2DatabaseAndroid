@@ -80,7 +80,7 @@ public class TechTreeBox extends TechTreeItem {
         Set<Integer> specialBuildings = new HashSet<>();
         Collections.addAll(specialBuildings, 4, 20, 36, 37);
         Set<Integer> specialUnits = new HashSet<>();
-        Collections.addAll(specialUnits, 80, 81, 90, 153, 92, 178, 183);
+        Collections.addAll(specialUnits, 80, 81, 90, 153, 92, 178, 183, 148, 159, 101);
 
         if (entityType == UNIQUE_UNIT || entityType == ELITE_UNIQUE_UNIT || entityType == CASTLE_UNIQUE_TECH || entityType == IMP_UNIQUE_TECH || entityType == SPECIAL_UNIQUE_UNIT)
             techTreeData.addUniqueBox(this);
@@ -141,7 +141,9 @@ public class TechTreeBox extends TechTreeItem {
                     if (civID == 43) this.setVisibility(INVISIBLE);
                     else this.setVisibility(VISIBLE);
                 }
-
+                if (entityID == 101){
+                    this.setBottomConnector(civID != 35);
+                }
                 l = Database.getElement(Database.UNIT_LIST, entityID);
                 layout.setBackgroundColor(c.getColor(unitBoxColor));
                 break;
@@ -189,6 +191,16 @@ public class TechTreeBox extends TechTreeItem {
                 if (entityID == 23 || entityID == 180){
                     if (civID == 44) entityID = 180;
                     else entityID = 23;
+                }
+                else if (entityID == 148 || entityID == 159){
+                    if (civID == 35) {
+                        entityID = 148;
+                        this.setTopConnector(false);
+                    }
+                    else {
+                        entityID = 159;
+                        this.setTopConnector(true);
+                    }
                 }
                 l = Database.getElement(Database.UNIT_LIST, entityID);
                 layout.setBackgroundColor(c.getColor(R.color.purple));

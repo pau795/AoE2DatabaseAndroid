@@ -785,7 +785,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="@dimen/tt_8box_layout"
+                        android:layout_width="@dimen/tt_7box_layout"
                         android:layout_height="match_parent">
 
                     </LinearLayout>
@@ -1779,7 +1779,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="@dimen/tt_8box_layout"
+                        android:layout_width="@dimen/tt_7box_layout"
                         android:layout_height="match_parent">
 
                     </LinearLayout>
@@ -3052,7 +3052,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="@dimen/tt_8box_layout"
+                        android:layout_width="@dimen/tt_7box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -3097,14 +3097,6 @@
                                 app:entity_type="unit"
                                 app:right_margin="true"
                                 app:top_connector="true"
-                                app:top_left_connector="true"
-                                app:top_right_connector="true" />
-
-                            <com.aoedb.widgets.TechTreeEmptyBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                app:line="true"
-                                app:right_margin="true"
                                 app:top_left_connector="true"
                                 app:top_right_connector="true" />
 
@@ -4576,7 +4568,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="@dimen/tt_8box_layout"
+                        android:layout_width="@dimen/tt_7box_layout"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
@@ -4601,14 +4593,6 @@
                                 app:entity_id="102"
                                 app:entity_type="unit"
                                 app:right_margin="true" />
-
-                            <com.aoedb.widgets.TechTreeBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                app:entity_id="148"
-                                app:entity_type="special_unique_unit"
-                                app:right_margin="true"
-                                app:top_connector="true" />
 
                             <com.aoedb.widgets.TechTreeBox
                                 android:layout_width="wrap_content"
@@ -4660,12 +4644,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 app:left_margin="true"
-                                app:line="false"
-                                app:right_margin="true" />
-
-                            <com.aoedb.widgets.TechTreeEmptyBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
                                 app:line="false"
                                 app:right_margin="true" />
 
