@@ -31,7 +31,7 @@ public class Database {
 
     //DATABASE CONSTANTS
     public final static String APP_VERSION = "v2.8";
-    public final static int PATCH_VERSION = 107882;
+    public final static int PATCH_VERSION = 111772;
 
     //LANGUAGES
     public final static String SPANISH = "es";
